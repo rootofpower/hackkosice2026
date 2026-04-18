@@ -27,6 +27,7 @@ beta_model/
 gama_model/
 results/*
 !results/*.log
+!results/*.pth
 *.bmp
 *.jpg
 *.jpeg
