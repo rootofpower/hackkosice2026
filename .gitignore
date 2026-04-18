@@ -25,7 +25,8 @@ test/
 alpha_model/
 beta_model/
 gama_model/
-results/
+results/*
+!results/*.log
 *.bmp
 *.jpg
 *.jpeg
