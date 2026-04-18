@@ -45,3 +45,5 @@ ehthumbs.db
 Thumbs.db
 
 *.zip
+
+efficientnet_best.pth
