@@ -1,4 +1,4 @@
-torch
+пшеtorch
 torchvision
 scikit-learn
 Pillow

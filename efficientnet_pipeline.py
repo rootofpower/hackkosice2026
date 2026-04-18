@@ -25,6 +25,7 @@ from sklearn.metrics import (
     roc_auc_score,
     f1_score,
     recall_score,
+    precision_score,
     accuracy_score,
     classification_report,
     confusion_matrix
@@ -35,9 +36,8 @@ from tqdm import tqdm
 # =============================================================================
 # Config
 # =============================================================================
-DATA_ROOT    = "/home/rootofpower/personal/hackkosice2026/ml_model/test"
+DATA_ROOT    = "./test"
 RESULTS_DIR  = "results"
-LOG_FILE     = "results/efficientnet_run.log"
 IMAGE_SIZE   = (490, 490)
 BATCH_SIZE   = 16
 NUM_EPOCHS   = 60
@@ -49,12 +49,17 @@ RANDOM_SEED  = 42
 NUM_CLASSES  = 2
 DEVICE       = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+FINETUNE_EPOCHS  = 40
+FINETUNE_PATIENCE = 10
+CHECKPOINT_FT    = "results/efficientnet_finetuned.pth"
+LOG_FILE_FT      = "results/efficientnet_finetune.log"
+
 # =============================================================================
 # Logging
 # =============================================================================
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
-log_path = os.path.join(RESULTS_DIR, "efficientnet_run.log")
+log_path = LOG_FILE_FT
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(message)s",
@@ -232,25 +237,64 @@ def main():
                                    lr=LR, weight_decay=WEIGHT_DECAY)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=NUM_EPOCHS)
     
-    # Training Loop
-    best_f1 = -1.0
-    best_model_wts = copy.deepcopy(model.state_dict())
-    epochs_no_improve = 0
-    
+    # Load Warm-up checkpoint
     best_checkpoint_path = os.path.join(RESULTS_DIR, "efficientnet_best.pth")
+    log.info(f"Loading warm-up checkpoint from {best_checkpoint_path}...")
+    try:
+        model.load_state_dict(torch.load(best_checkpoint_path, map_location=DEVICE))
+    except Exception as e:
+        log.error(f"Failed to load checkpoint: {e}")
+        return
+        
+    # ==========================================
+    # Phase 2: Fine-tuning
+    # ==========================================
+    log.info("Starting Phase 2: Fine-tuning")
     
-    for epoch in range(1, NUM_EPOCHS + 1):
+    # Unfreeze last 3 blocks + classifier
+    for name, param in model.named_parameters():
+        param.requires_grad = False  # freeze everything first
+
+    for name, param in model.named_parameters():
+        if any(f"features.{i}" in name for i in [6, 7, 8]):
+            param.requires_grad = True
+        if "classifier" in name:
+            param.requires_grad = True
+
+    trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    log.info(f"Fine-tune trainable params: {trainable:,}")
+
+    backbone_params = [p for n, p in model.named_parameters()
+                       if any(f"features.{i}" in n for i in [6, 7, 8])
+                       and p.requires_grad]
+    classifier_params = [p for n, p in model.named_parameters()
+                         if "classifier" in n and p.requires_grad]
+
+    optimizer_ft = torch.optim.AdamW([
+        {"params": backbone_params,   "lr": 1e-5},  # 100x lower than warm-up
+        {"params": classifier_params, "lr": 1e-4},  # 10x lower than warm-up
+    ], weight_decay=1e-4)
+
+    scheduler_ft = torch.optim.lr_scheduler.CosineAnnealingLR(
+        optimizer_ft, T_max=FINETUNE_EPOCHS
+    )
+
+    best_f1_ft = -1.0
+    best_model_wts_ft = copy.deepcopy(model.state_dict())
+    epochs_no_improve_ft = 0
+
+    for epoch in range(1, FINETUNE_EPOCHS + 1):
         model.train()
         train_loss = 0.0
         
-        for inputs, targets in tqdm(train_loader, desc=f"Epoch {epoch:02d}/{NUM_EPOCHS} Train", leave=False):
+        for inputs, targets in tqdm(train_loader, desc=f"FT Epoch {epoch:02d}/{FINETUNE_EPOCHS} Train", leave=False):
             inputs, targets = inputs.to(DEVICE), targets.to(DEVICE)
             
-            optimizer.zero_grad()
+            optimizer_ft.zero_grad()
             outputs = model(inputs)
             loss = criterion(outputs, targets)
             loss.backward()
-            optimizer.step()
+            optimizer_ft.step()
             
             train_loss += loss.item() * inputs.size(0)
             
@@ -263,7 +307,7 @@ def main():
         all_targets = []
         
         with torch.no_grad():
-            for inputs, targets in tqdm(test_loader, desc=f"Epoch {epoch:02d}/{NUM_EPOCHS} Val", leave=False):
+            for inputs, targets in tqdm(test_loader, desc=f"FT Epoch {epoch:02d}/{FINETUNE_EPOCHS} Val", leave=False):
                 inputs, targets = inputs.to(DEVICE), targets.to(DEVICE)
                 
                 outputs = model(inputs)
@@ -277,29 +321,30 @@ def main():
         val_loss = val_loss / len(test_dataset)
         val_f1 = f1_score(all_targets, all_preds, average='macro', zero_division=0)
         
-        log.info(f"Epoch {epoch:02d}/{NUM_EPOCHS} | "
+        log.info(f"FT Epoch {epoch:02d}/{FINETUNE_EPOCHS} | "
                  f"train_loss={train_loss:.4f} | "
                  f"val_loss={val_loss:.4f} | "
                  f"val_f1_macro={val_f1:.4f} | "
-                 f"lr={scheduler.get_last_lr()[0]:.6f}")
+                 f"backbone_lr={optimizer_ft.param_groups[0]['lr']:.2e} | "
+                 f"head_lr={optimizer_ft.param_groups[1]['lr']:.2e}")
                  
-        scheduler.step()
+        scheduler_ft.step()
         
-        if val_f1 > best_f1:
-            best_f1 = val_f1
-            best_model_wts = copy.deepcopy(model.state_dict())
-            torch.save(model.state_dict(), best_checkpoint_path)
-            epochs_no_improve = 0
+        if val_f1 > best_f1_ft:
+            best_f1_ft = val_f1
+            best_model_wts_ft = copy.deepcopy(model.state_dict())
+            torch.save(model.state_dict(), CHECKPOINT_FT)
+            epochs_no_improve_ft = 0
         else:
-            epochs_no_improve += 1
+            epochs_no_improve_ft += 1
             
-        if epochs_no_improve >= PATIENCE:
-            log.info(f"Early stopping at epoch {epoch} — best F1: {best_f1:.4f}")
+        if epochs_no_improve_ft >= FINETUNE_PATIENCE:
+            log.info(f"Early stopping at FT epoch {epoch} — best F1: {best_f1_ft:.4f}")
             break
             
-    # Evaluation (on test set, using best checkpoint)
-    log.info("Loading best model for final evaluation on test set...")
-    model.load_state_dict(best_model_wts)
+    # Evaluation (on test set, using best fine-tuned checkpoint)
+    log.info("Loading best fine-tuned model for final evaluation on test set...")
+    model.load_state_dict(best_model_wts_ft)
     model.eval()
     
     y_true = []
@@ -333,17 +378,22 @@ def main():
     
     # Disease recall = recall for class 0
     recall = recall_score(y_true_np, y_pred_np, labels=[0, 1], pos_label=0, zero_division=0)
+    precision = precision_score(y_true_np, y_pred_np, labels=[0, 1], pos_label=0, zero_division=0)
     accuracy = accuracy_score(y_true_np, y_pred_np)
+    fn = sum((y_true_np == 0) & (y_pred_np == 1))
     
     class_names = ["diabetes_spolu_zo_suchym_okom", "zdravi_ludi"]
     
-    log.info("=" * 60)
-    log.info("EFFICIENTNET RESULTS")
-    log.info("=" * 60)
-    log.info(f"ROC-AUC:        {roc_auc:.4f}")
-    log.info(f"F1-macro:       {f1_macro:.4f}")
-    log.info(f"Disease recall: {recall:.4f}")
-    log.info(f"Accuracy:       {accuracy:.4f}")
+    log.info("=" * 65)
+    log.info("FULL COMPARISON — all stages")
+    log.info("=" * 65)
+    log.info(f"{'Metric':<25} {'RF':>10} {'Frozen':>10} {'Fine-tuned':>12}")
+    log.info(f"{'ROC-AUC':<25} {'0.8548':>10} {'0.9425':>10} {roc_auc:>12.4f}")
+    log.info(f"{'F1-macro':<25} {'0.6867':>10} {'0.8784':>10} {f1_macro:>12.4f}")
+    log.info(f"{'Disease recall':<25} {'0.4598':>10} {'0.8276':>10} {recall:>12.4f}")
+    log.info(f"{'Disease precision':<25} {'0.9000':>10} {'0.9200':>10} {precision:>12.4f}")
+    log.info(f"{'False negatives':<25} {'47':>10} {'15':>10} {fn:>12}")
+    
     log.info("\nClassification report:")
     log.info("\n" + classification_report(y_true_np, y_pred_np, target_names=class_names, zero_division=0))
     
@@ -356,20 +406,12 @@ def main():
     )
     ax.set_xlabel("Predikovane")
     ax.set_ylabel("Skutocne")
-    ax.set_title("EfficientNet — Confusion Matrix")
+    ax.set_title("EfficientNet Fine-Tuned — Confusion Matrix")
     fig.tight_layout()
-    confusion_path = os.path.join(RESULTS_DIR, "efficientnet_confusion_matrix.png")
+    confusion_path = os.path.join(RESULTS_DIR, "efficientnet_finetuned_confusion_matrix.png")
     fig.savefig(confusion_path, dpi=200)
     plt.close(fig)
     
-    # Final comparison block at end of log
-    log.info("=" * 60)
-    log.info("COMPARISON — RF baseline vs EfficientNet")
-    log.info("=" * 60)
-    log.info(f"{'Metric':<25} {'RF baseline':>15} {'EfficientNet':>15}")
-    log.info(f"{'ROC-AUC':<25} {'0.8548':>15} {roc_auc:>15.4f}")
-    log.info(f"{'F1-macro':<25} {'0.6867':>15} {f1_macro:>15.4f}")
-    log.info(f"{'Disease recall':<25} {'0.4598':>15} {recall:>15.4f}")
     log.info(f"Log saved to: {log_path}")
 
 if __name__ == "__main__":
