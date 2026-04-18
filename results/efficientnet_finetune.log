@@ -1,0 +1,61 @@
+2026-04-19 01:24:24 | Starting EfficientNet Transfer Learning Pipeline
+2026-04-19 01:24:24 | Total images found: 864
+2026-04-19 01:24:24 | Class 0 (diabetes_spolu_zo_suchym_okom): 432
+2026-04-19 01:24:24 | Class 1 (zdravi_ludi): 432
+2026-04-19 01:24:24 | Training samples: 691
+2026-04-19 01:24:24 | Test samples: 173
+2026-04-19 01:24:24 | Device: cuda
+2026-04-19 01:24:24 | Trainable params: 2,562
+2026-04-19 01:24:24 | Loading warm-up checkpoint from results/efficientnet_best.pth...
+2026-04-19 01:24:24 | Starting Phase 2: Fine-tuning
+2026-04-19 01:24:24 | Fine-tune trainable params: 3,158,302
+2026-04-19 01:24:27 | FT Epoch 01/40 | train_loss=0.3337 | val_loss=0.3249 | val_f1_macro=0.8668 | backbone_lr=1.00e-05 | head_lr=1.00e-04
+2026-04-19 01:24:29 | FT Epoch 02/40 | train_loss=0.3591 | val_loss=0.2907 | val_f1_macro=0.8786 | backbone_lr=9.98e-06 | head_lr=9.98e-05
+2026-04-19 01:24:31 | FT Epoch 03/40 | train_loss=0.2988 | val_loss=0.2791 | val_f1_macro=0.9073 | backbone_lr=9.94e-06 | head_lr=9.94e-05
+2026-04-19 01:24:33 | FT Epoch 04/40 | train_loss=0.2936 | val_loss=0.2911 | val_f1_macro=0.8785 | backbone_lr=9.86e-06 | head_lr=9.86e-05
+2026-04-19 01:24:35 | FT Epoch 05/40 | train_loss=0.3035 | val_loss=0.3005 | val_f1_macro=0.8900 | backbone_lr=9.76e-06 | head_lr=9.76e-05
+2026-04-19 01:24:38 | FT Epoch 06/40 | train_loss=0.3256 | val_loss=0.3009 | val_f1_macro=0.8842 | backbone_lr=9.62e-06 | head_lr=9.62e-05
+2026-04-19 01:24:40 | FT Epoch 07/40 | train_loss=0.2796 | val_loss=0.3008 | val_f1_macro=0.8841 | backbone_lr=9.46e-06 | head_lr=9.46e-05
+2026-04-19 01:24:42 | FT Epoch 08/40 | train_loss=0.2645 | val_loss=0.2614 | val_f1_macro=0.9074 | backbone_lr=9.26e-06 | head_lr=9.26e-05
+2026-04-19 01:24:47 | FT Epoch 09/40 | train_loss=0.2857 | val_loss=0.3044 | val_f1_macro=0.8782 | backbone_lr=9.05e-06 | head_lr=9.05e-05
+2026-04-19 01:24:49 | FT Epoch 10/40 | train_loss=0.2671 | val_loss=0.2787 | val_f1_macro=0.8957 | backbone_lr=8.80e-06 | head_lr=8.80e-05
+2026-04-19 01:24:51 | FT Epoch 11/40 | train_loss=0.2730 | val_loss=0.2527 | val_f1_macro=0.8902 | backbone_lr=8.54e-06 | head_lr=8.54e-05
+2026-04-19 01:24:53 | FT Epoch 12/40 | train_loss=0.2878 | val_loss=0.2604 | val_f1_macro=0.9017 | backbone_lr=8.25e-06 | head_lr=8.25e-05
+2026-04-19 01:24:56 | FT Epoch 13/40 | train_loss=0.2645 | val_loss=0.2498 | val_f1_macro=0.8957 | backbone_lr=7.94e-06 | head_lr=7.94e-05
+2026-04-19 01:24:58 | FT Epoch 14/40 | train_loss=0.2672 | val_loss=0.2476 | val_f1_macro=0.8902 | backbone_lr=7.61e-06 | head_lr=7.61e-05
+2026-04-19 01:25:00 | FT Epoch 15/40 | train_loss=0.2759 | val_loss=0.2763 | val_f1_macro=0.8898 | backbone_lr=7.27e-06 | head_lr=7.27e-05
+2026-04-19 01:25:02 | FT Epoch 16/40 | train_loss=0.2762 | val_loss=0.2538 | val_f1_macro=0.9247 | backbone_lr=6.91e-06 | head_lr=6.91e-05
+2026-04-19 01:25:04 | FT Epoch 17/40 | train_loss=0.3013 | val_loss=0.2564 | val_f1_macro=0.9074 | backbone_lr=6.55e-06 | head_lr=6.55e-05
+2026-04-19 01:25:07 | FT Epoch 18/40 | train_loss=0.2318 | val_loss=0.2748 | val_f1_macro=0.9013 | backbone_lr=6.17e-06 | head_lr=6.17e-05
+2026-04-19 01:25:09 | FT Epoch 19/40 | train_loss=0.2763 | val_loss=0.2354 | val_f1_macro=0.9075 | backbone_lr=5.78e-06 | head_lr=5.78e-05
+2026-04-19 01:25:11 | FT Epoch 20/40 | train_loss=0.2889 | val_loss=0.2572 | val_f1_macro=0.9015 | backbone_lr=5.39e-06 | head_lr=5.39e-05
+2026-04-19 01:25:13 | FT Epoch 21/40 | train_loss=0.2374 | val_loss=0.2506 | val_f1_macro=0.9131 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 01:25:15 | FT Epoch 22/40 | train_loss=0.2327 | val_loss=0.2468 | val_f1_macro=0.9014 | backbone_lr=4.61e-06 | head_lr=4.61e-05
+2026-04-19 01:25:18 | FT Epoch 23/40 | train_loss=0.2367 | val_loss=0.2284 | val_f1_macro=0.8959 | backbone_lr=4.22e-06 | head_lr=4.22e-05
+2026-04-19 01:25:23 | FT Epoch 24/40 | train_loss=0.2607 | val_loss=0.2476 | val_f1_macro=0.8900 | backbone_lr=3.83e-06 | head_lr=3.83e-05
+2026-04-19 01:25:25 | FT Epoch 25/40 | train_loss=0.2117 | val_loss=0.2288 | val_f1_macro=0.9075 | backbone_lr=3.45e-06 | head_lr=3.45e-05
+2026-04-19 01:25:27 | FT Epoch 26/40 | train_loss=0.2375 | val_loss=0.2298 | val_f1_macro=0.9190 | backbone_lr=3.09e-06 | head_lr=3.09e-05
+2026-04-19 01:25:27 | Early stopping at FT epoch 26 — best F1: 0.9247
+2026-04-19 01:25:27 | Loading best fine-tuned model for final evaluation on test set...
+2026-04-19 01:25:27 | =================================================================
+2026-04-19 01:25:27 | FULL COMPARISON — all stages
+2026-04-19 01:25:27 | =================================================================
+2026-04-19 01:25:27 | Metric                            RF     Frozen   Fine-tuned
+2026-04-19 01:25:27 | ROC-AUC                       0.8548     0.9425       0.9630
+2026-04-19 01:25:27 | F1-macro                      0.6867     0.8784       0.9247
+2026-04-19 01:25:27 | Disease recall                0.4598     0.8276       0.8736
+2026-04-19 01:25:27 | Disease precision             0.9000     0.9200       0.9744
+2026-04-19 01:25:27 | False negatives                   47         15           11
+2026-04-19 01:25:27 | 
+Classification report:
+2026-04-19 01:25:27 | 
+                               precision    recall  f1-score   support
+
+diabetes_spolu_zo_suchym_okom       0.97      0.87      0.92        87
+                  zdravi_ludi       0.88      0.98      0.93        86
+
+                     accuracy                           0.92       173
+                    macro avg       0.93      0.93      0.92       173
+                 weighted avg       0.93      0.92      0.92       173
+
+2026-04-19 01:25:27 | Log saved to: results/efficientnet_finetune.log
