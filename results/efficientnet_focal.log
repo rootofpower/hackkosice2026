@@ -1,0 +1,21 @@
+2026-04-19 01:51:53 | Focal Epoch 01/20 | train_loss=0.0821 | val_loss=0.0881 | val_f1_macro=0.9075
+2026-04-19 01:51:55 | Focal Epoch 02/20 | train_loss=0.0800 | val_loss=0.0929 | val_f1_macro=0.9132
+2026-04-19 01:51:57 | Focal Epoch 03/20 | train_loss=0.0768 | val_loss=0.0903 | val_f1_macro=0.9132
+2026-04-19 01:51:59 | Focal Epoch 04/20 | train_loss=0.0763 | val_loss=0.0780 | val_f1_macro=0.9074
+2026-04-19 01:52:01 | Focal Epoch 05/20 | train_loss=0.0635 | val_loss=0.0757 | val_f1_macro=0.9132
+2026-04-19 01:52:03 | Focal Epoch 06/20 | train_loss=0.0798 | val_loss=0.0570 | val_f1_macro=0.9133
+2026-04-19 01:52:06 | Focal Epoch 07/20 | train_loss=0.0722 | val_loss=0.0797 | val_f1_macro=0.8959
+2026-04-19 01:52:08 | Focal Epoch 08/20 | train_loss=0.0794 | val_loss=0.0659 | val_f1_macro=0.9017
+2026-04-19 01:52:10 | Focal Epoch 09/20 | train_loss=0.0821 | val_loss=0.0647 | val_f1_macro=0.9017
+2026-04-19 01:52:12 | Focal Epoch 10/20 | train_loss=0.0629 | val_loss=0.0877 | val_f1_macro=0.9132
+2026-04-19 01:52:14 | Focal Epoch 11/20 | train_loss=0.0750 | val_loss=0.0744 | val_f1_macro=0.8959
+2026-04-19 01:52:16 | Focal Epoch 12/20 | train_loss=0.0775 | val_loss=0.0752 | val_f1_macro=0.9248
+2026-04-19 01:52:21 | Focal Epoch 13/20 | train_loss=0.0662 | val_loss=0.0948 | val_f1_macro=0.9248
+2026-04-19 01:52:24 | Focal Epoch 14/20 | train_loss=0.0648 | val_loss=0.0882 | val_f1_macro=0.9074
+2026-04-19 01:52:26 | Focal Epoch 15/20 | train_loss=0.0731 | val_loss=0.0628 | val_f1_macro=0.9248
+2026-04-19 01:52:28 | Focal Epoch 16/20 | train_loss=0.0722 | val_loss=0.0675 | val_f1_macro=0.9075
+2026-04-19 01:52:30 | Focal Epoch 17/20 | train_loss=0.0891 | val_loss=0.0649 | val_f1_macro=0.9191
+2026-04-19 01:52:32 | Focal Epoch 18/20 | train_loss=0.0670 | val_loss=0.0663 | val_f1_macro=0.9191
+2026-04-19 01:52:34 | Focal Epoch 19/20 | train_loss=0.0682 | val_loss=0.0747 | val_f1_macro=0.9132
+2026-04-19 01:52:36 | Focal Epoch 20/20 | train_loss=0.0601 | val_loss=0.0649 | val_f1_macro=0.9074
+2026-04-19 01:52:36 | Early stopping at Focal epoch 20 — best F1: 0.9248
