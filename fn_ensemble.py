@@ -269,7 +269,8 @@ def main():
     
     log.info(f"Starting fn_ensemble pipeline for pair: {PAIR_KEY}")
     
-    paths, labels = load_data(DATA_ROOT, PAIR)
+    data_path = f"{DATA_ROOT}/{PAIR_KEY}"
+    paths, labels = load_data(data_path, PAIR)
     indices = np.arange(len(paths))
     train_idx, test_idx = train_test_split(
         indices,

@@ -11,7 +11,7 @@ PAIRS = {
     },
     "skleroza": {
         "disease_class": "skleroza",
-        "healthy_class": "zdravi_ludi",
+        "healthy_class": "zdrave_ludi",
         "label":         "Skleroza Multiplex",
     },
 }
