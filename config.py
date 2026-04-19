@@ -1,17 +1,17 @@
 PAIRS = {
     "diabetes": {
-        "disease_class": "diabetes_spolu_zo_suchym_okom",
+        "disease_class": "diabetes",
         "healthy_class": "zdravi_ludi",
         "label":         "Diabetes + Suche Oko",
     },
     "pgov": {
-        "disease_class": "pgov_spolu_zo_suchym_okom",
+        "disease_class": "pgov",
         "healthy_class": "zdravi_ludi",
         "label":         "PGOV + Suche Oko",
     },
     "skleroza": {
         "disease_class": "skleroza",
-        "healthy_class": "zdrave_ludi",
+        "healthy_class": "zdravi_ludi",
         "label":         "Skleroza Multiplex",
     },
 }

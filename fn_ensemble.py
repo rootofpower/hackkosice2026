@@ -23,7 +23,7 @@ from tqdm import tqdm
 
 from config import PAIRS
 
-DATA_ROOT    = "./test"
+DATA_ROOT    = "./dataset"
 IMAGE_SIZE   = (490, 490)
 BATCH_SIZE   = 16
 N_TTA        = 30

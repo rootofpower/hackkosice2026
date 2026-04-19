@@ -124,7 +124,7 @@ def main():
     PAIR_KEY = args.pair
     PAIR = PAIRS[PAIR_KEY]
     
-    DATA_ROOT    = f"./test/{PAIR_KEY}"
+    DATA_ROOT    = f"./dataset/{PAIR_KEY}"
     RESULTS_DIR  = f"results/{PAIR_KEY}"
     IMAGE_SIZE   = (490, 490)
     BATCH_SIZE   = 16
