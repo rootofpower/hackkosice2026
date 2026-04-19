@@ -1,0 +1,77 @@
+2026-04-19 08:49:01 | Starting EfficientNet v2 Training for pair: skleroza
+2026-04-19 08:49:01 | Label: Skleroza Multiplex
+2026-04-19 08:49:01 | Backbone: b2 | Seed: 42
+2026-04-19 08:49:01 | Device: cuda
+2026-04-19 08:49:01 |   disease_train: 440 images → dataset/skleroza/learning/skleroza
+2026-04-19 08:49:01 |   disease_test: 112 images → dataset/skleroza/test/skleroza
+2026-04-19 08:49:01 |   healthy_train: 440 images → dataset/skleroza/learning/zdravi_ludi
+2026-04-19 08:49:01 |   healthy_test: 112 images → dataset/skleroza/test/zdravi_ludi
+2026-04-19 08:49:01 | Train — disease: 440, healthy: 440, total: 880
+2026-04-19 08:49:01 | Test — disease: 112, healthy: 112, total: 224
+2026-04-19 08:49:01 | Class weights (disease-boosted): [1.5 1. ]
+2026-04-19 08:49:01 | =================================================================
+2026-04-19 08:49:01 | PHASE 1: Frozen backbone — classifier head warm-up
+2026-04-19 08:49:01 | =================================================================
+2026-04-19 08:49:01 | Phase 1 trainable params: 2,818
+2026-04-19 08:49:09 | P1 Epoch 01/15 | train_loss=0.3694 | val_loss=0.2785 | val_f1=0.9373 | lr=1.00e-03
+2026-04-19 08:49:15 | P1 Epoch 02/15 | train_loss=0.2743 | val_loss=0.2330 | val_f1=0.9553 | lr=9.89e-04
+2026-04-19 08:49:22 | P1 Epoch 03/15 | train_loss=0.2740 | val_loss=0.2459 | val_f1=0.9418 | lr=9.57e-04
+2026-04-19 08:49:29 | P1 Epoch 04/15 | train_loss=0.2416 | val_loss=0.2532 | val_f1=0.9418 | lr=9.05e-04
+2026-04-19 08:49:35 | P1 Epoch 05/15 | train_loss=0.2564 | val_loss=0.2368 | val_f1=0.9418 | lr=8.35e-04
+2026-04-19 08:49:43 | P1 Epoch 06/15 | train_loss=0.2461 | val_loss=0.2312 | val_f1=0.9642 | lr=7.50e-04
+2026-04-19 08:49:49 | P1 Epoch 07/15 | train_loss=0.2370 | val_loss=0.2264 | val_f1=0.9598 | lr=6.55e-04
+2026-04-19 08:49:56 | P1 Epoch 08/15 | train_loss=0.2447 | val_loss=0.2599 | val_f1=0.9237 | lr=5.52e-04
+2026-04-19 08:50:02 | P1 Epoch 09/15 | train_loss=0.2312 | val_loss=0.2340 | val_f1=0.9373 | lr=4.48e-04
+2026-04-19 08:50:08 | P1 Epoch 10/15 | train_loss=0.2413 | val_loss=0.2474 | val_f1=0.9327 | lr=3.45e-04
+2026-04-19 08:50:16 | P1 Epoch 11/15 | train_loss=0.2334 | val_loss=0.2653 | val_f1=0.9282 | lr=2.50e-04
+2026-04-19 08:50:23 | P1 Epoch 12/15 | train_loss=0.2270 | val_loss=0.2425 | val_f1=0.9282 | lr=1.65e-04
+2026-04-19 08:50:29 | P1 Epoch 13/15 | train_loss=0.2233 | val_loss=0.2381 | val_f1=0.9418 | lr=9.55e-05
+2026-04-19 08:50:36 | P1 Epoch 14/15 | train_loss=0.2512 | val_loss=0.2432 | val_f1=0.9463 | lr=4.32e-05
+2026-04-19 08:50:36 | Phase 1 early stop at epoch 14 — best F1: 0.9642
+2026-04-19 08:50:36 | Phase 1 complete — best F1: 0.9642
+2026-04-19 08:50:36 | =================================================================
+2026-04-19 08:50:36 | PHASE 2: Deep fine-tune with Focal Loss + Mixup
+2026-04-19 08:50:36 | =================================================================
+2026-04-19 08:50:36 | Phase 2 trainable params: 7,570,266
+2026-04-19 08:50:42 | P2 Epoch 01/60 | train_loss=0.1619 | val_loss=0.0729 | val_f1=0.9282 | bb_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 08:50:50 | P2 Epoch 02/60 | train_loss=0.1369 | val_loss=0.0588 | val_f1=0.9553 | bb_lr=4.88e-06 | head_lr=4.88e-05
+2026-04-19 08:50:57 | P2 Epoch 03/60 | train_loss=0.1474 | val_loss=0.0505 | val_f1=0.9464 | bb_lr=4.52e-06 | head_lr=4.52e-05
+2026-04-19 08:51:04 | P2 Epoch 04/60 | train_loss=0.0943 | val_loss=0.0684 | val_f1=0.9283 | bb_lr=3.97e-06 | head_lr=3.97e-05
+2026-04-19 08:51:10 | P2 Epoch 05/60 | train_loss=0.1026 | val_loss=0.0526 | val_f1=0.9508 | bb_lr=3.27e-06 | head_lr=3.27e-05
+2026-04-19 08:51:17 | P2 Epoch 06/60 | train_loss=0.0985 | val_loss=0.0514 | val_f1=0.9374 | bb_lr=2.50e-06 | head_lr=2.50e-05
+2026-04-19 08:51:25 | P2 Epoch 07/60 | train_loss=0.1209 | val_loss=0.0607 | val_f1=0.9328 | bb_lr=1.73e-06 | head_lr=1.73e-05
+2026-04-19 08:51:32 | P2 Epoch 08/60 | train_loss=0.0991 | val_loss=0.0528 | val_f1=0.9373 | bb_lr=1.03e-06 | head_lr=1.03e-05
+2026-04-19 08:51:38 | P2 Epoch 09/60 | train_loss=0.1139 | val_loss=0.0502 | val_f1=0.9419 | bb_lr=4.77e-07 | head_lr=4.77e-06
+2026-04-19 08:51:45 | P2 Epoch 10/60 | train_loss=0.1015 | val_loss=0.0694 | val_f1=0.9239 | bb_lr=1.22e-07 | head_lr=1.22e-06
+2026-04-19 08:51:52 | P2 Epoch 11/60 | train_loss=0.0919 | val_loss=0.0585 | val_f1=0.9328 | bb_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 08:52:00 | P2 Epoch 12/60 | train_loss=0.1048 | val_loss=0.0481 | val_f1=0.9464 | bb_lr=4.97e-06 | head_lr=4.97e-05
+2026-04-19 08:52:07 | P2 Epoch 13/60 | train_loss=0.1008 | val_loss=0.0583 | val_f1=0.9418 | bb_lr=4.88e-06 | head_lr=4.88e-05
+2026-04-19 08:52:13 | P2 Epoch 14/60 | train_loss=0.0934 | val_loss=0.0511 | val_f1=0.9375 | bb_lr=4.73e-06 | head_lr=4.73e-05
+2026-04-19 08:52:20 | P2 Epoch 15/60 | train_loss=0.0782 | val_loss=0.0499 | val_f1=0.9329 | bb_lr=4.52e-06 | head_lr=4.52e-05
+2026-04-19 08:52:27 | P2 Epoch 16/60 | train_loss=0.1093 | val_loss=0.0513 | val_f1=0.9464 | bb_lr=4.27e-06 | head_lr=4.27e-05
+2026-04-19 08:52:35 | P2 Epoch 17/60 | train_loss=0.0872 | val_loss=0.0579 | val_f1=0.9464 | bb_lr=3.97e-06 | head_lr=3.97e-05
+2026-04-19 08:52:35 | Phase 2 early stop at epoch 17 — best F1: 0.9553
+2026-04-19 08:52:35 | Loading best Phase 2 model for final evaluation...
+2026-04-19 08:52:36 | =================================================================
+2026-04-19 08:52:36 | FINAL EVALUATION
+2026-04-19 08:52:36 | =================================================================
+2026-04-19 08:52:36 | ROC-AUC:           0.9950
+2026-04-19 08:52:36 | F1-macro:          0.9553
+2026-04-19 08:52:36 | Disease recall:    0.9107
+2026-04-19 08:52:36 | Disease precision: 1.0000
+2026-04-19 08:52:36 | False negatives:   10
+2026-04-19 08:52:36 | False positives:   0
+2026-04-19 08:52:36 | 
+Classification report:
+              precision    recall  f1-score   support
+
+    Skleroza       1.00      0.91      0.95       112
+      Zdravi       0.92      1.00      0.96       112
+
+    accuracy                           0.96       224
+   macro avg       0.96      0.96      0.96       224
+weighted avg       0.96      0.96      0.96       224
+
+2026-04-19 08:52:36 | Model saved to: results/skleroza/efficientnet_v2_b2_skleroza.pth
+2026-04-19 08:52:36 | Log saved to: results/skleroza/training_v2_b2_skleroza.log
+2026-04-19 08:52:36 | Confusion matrix: results/skleroza/v2_b2_confusion_matrix_skleroza.png

@@ -1,0 +1,92 @@
+2026-04-19 08:43:58 | Starting fn_ensemble v2 pipeline for pair: diabetes
+2026-04-19 08:43:58 | Label: Diabetes + Suche Oko
+2026-04-19 08:43:58 | Backbone: b2
+2026-04-19 08:43:58 |   disease_train: 352 images → dataset/diabetes/learning/diabetes
+2026-04-19 08:43:58 |   disease_test: 80 images → dataset/diabetes/test/diabetes
+2026-04-19 08:43:58 |   healthy_train: 352 images → dataset/diabetes/learning/zdravi_ludi/super_proccesed
+2026-04-19 08:43:58 |   healthy_test: 80 images → dataset/diabetes/test/zdravi_ludi/super_proccesed
+2026-04-19 08:43:58 | Train — disease: 352, healthy: 352, total: 704
+2026-04-19 08:43:58 | Test — disease: 80, healthy: 80, total: 160
+2026-04-19 08:43:58 | Loading Model A (seed=42): results/diabetes/efficientnet_v2_b2_diabetes.pth
+2026-04-19 08:43:58 | Loading Model B (seed=123): results/diabetes/efficientnet_v2_b2_s123_diabetes.pth
+2026-04-19 08:43:58 | Loading Old Model (finetune B0): results/diabetes/efficientnet_finetuned_diabetes.pth
+2026-04-19 08:43:58 | Ensemble models: ['v2_A', 'v2_B', 'old_FT']
+2026-04-19 08:48:57 | === Ensemble Variant 1: Single Model A + TTA ===
+2026-04-19 08:48:57 | Point A (Maximize Recall):
+2026-04-19 08:48:57 |   Threshold:         0.20
+2026-04-19 08:48:57 |   Disease recall:    1.0000
+2026-04-19 08:48:57 |   Disease precision: 0.5000
+2026-04-19 08:48:57 |   False negatives:   0
+2026-04-19 08:48:57 |   False positives:   80
+2026-04-19 08:48:57 |   F1-macro:          0.3333
+2026-04-19 08:48:57 | Point B (Recall >= 0.95 best precision):
+2026-04-19 08:48:57 |   Threshold:         0.39
+2026-04-19 08:48:57 |   Disease recall:    0.9500
+2026-04-19 08:48:57 |   Disease precision: 0.7308
+2026-04-19 08:48:57 |   False negatives:   4
+2026-04-19 08:48:57 |   False positives:   28
+2026-04-19 08:48:57 |   F1-macro:          0.7954
+2026-04-19 08:48:57 | Point C (Maximize F1-macro):
+2026-04-19 08:48:57 |   Threshold:         0.51
+2026-04-19 08:48:57 |   Disease recall:    0.8875
+2026-04-19 08:48:57 |   Disease precision: 0.8765
+2026-04-19 08:48:57 |   False negatives:   9
+2026-04-19 08:48:57 |   False positives:   10
+2026-04-19 08:48:57 |   F1-macro:          0.8812
+2026-04-19 08:48:58 | === Ensemble Variant 2: Avg(v2_A + v2_B) ===
+2026-04-19 08:48:58 | Point A (Maximize Recall):
+2026-04-19 08:48:58 |   Threshold:         0.20
+2026-04-19 08:48:58 |   Disease recall:    1.0000
+2026-04-19 08:48:58 |   Disease precision: 0.5000
+2026-04-19 08:48:58 |   False negatives:   0
+2026-04-19 08:48:58 |   False positives:   80
+2026-04-19 08:48:58 |   F1-macro:          0.3333
+2026-04-19 08:48:58 | Point B (Recall >= 0.95 best precision):
+2026-04-19 08:48:58 |   Threshold:         0.39
+2026-04-19 08:48:58 |   Disease recall:    0.9625
+2026-04-19 08:48:58 |   Disease precision: 0.7333
+2026-04-19 08:48:58 |   False negatives:   3
+2026-04-19 08:48:58 |   False positives:   28
+2026-04-19 08:48:58 |   F1-macro:          0.8014
+2026-04-19 08:48:58 | Point C (Maximize F1-macro):
+2026-04-19 08:48:58 |   Threshold:         0.47
+2026-04-19 08:48:58 |   Disease recall:    0.9000
+2026-04-19 08:48:58 |   Disease precision: 0.8675
+2026-04-19 08:48:58 |   False negatives:   8
+2026-04-19 08:48:58 |   False positives:   11
+2026-04-19 08:48:58 |   F1-macro:          0.8812
+2026-04-19 08:48:58 | === Ensemble Variant 3: Avg(v2_A + old_FT) ===
+2026-04-19 08:48:58 | Point A (Maximize Recall):
+2026-04-19 08:48:58 |   Threshold:         0.20
+2026-04-19 08:48:58 |   Disease recall:    1.0000
+2026-04-19 08:48:58 |   Disease precision: 0.5161
+2026-04-19 08:48:58 |   False negatives:   0
+2026-04-19 08:48:58 |   False positives:   75
+2026-04-19 08:48:58 |   F1-macro:          0.3992
+2026-04-19 08:48:58 | Point B (Recall >= 0.95 best precision):
+2026-04-19 08:48:58 |   Threshold:         0.38
+2026-04-19 08:48:58 |   Disease recall:    0.9500
+2026-04-19 08:48:58 |   Disease precision: 0.8736
+2026-04-19 08:48:58 |   False negatives:   4
+2026-04-19 08:48:58 |   False positives:   11
+2026-04-19 08:48:58 |   F1-macro:          0.9061
+2026-04-19 08:48:58 | Point C (Maximize F1-macro):
+2026-04-19 08:48:58 |   Threshold:         0.37
+2026-04-19 08:48:58 |   Disease recall:    0.9875
+2026-04-19 08:48:58 |   Disease precision: 0.8681
+2026-04-19 08:48:58 |   False negatives:   1
+2026-04-19 08:48:58 |   False positives:   12
+2026-04-19 08:48:58 |   F1-macro:          0.9184
+2026-04-19 08:48:58 | ================================================================================
+2026-04-19 08:48:58 | ENSEMBLE COMPARISON — target: FN=0, minimize FP
+2026-04-19 08:48:58 | ================================================================================
+2026-04-19 08:48:58 | Strategy                                 t   Recall     Prec    FN    FP       F1
+2026-04-19 08:48:58 | V1 (Single+TTA) Point A               0.20    1.000    0.500     0    80    0.333
+2026-04-19 08:48:58 | V1 (Single+TTA) Point B               0.39    0.950    0.731     4    28    0.795
+2026-04-19 08:48:58 | V1 (Single+TTA) Point C               0.51    0.887    0.877     9    10    0.881
+2026-04-19 08:48:58 | V2 (A+B Avg) Point A                  0.20    1.000    0.500     0    80    0.333
+2026-04-19 08:48:58 | V2 (A+B Avg) Point B                  0.39    0.963    0.733     3    28    0.801
+2026-04-19 08:48:58 | V2 (A+B Avg) Point C                  0.47    0.900    0.867     8    11    0.881
+2026-04-19 08:48:58 | V3 (v2+old) Point A                   0.20    1.000    0.516     0    75    0.399
+2026-04-19 08:48:58 | V3 (v2+old) Point B                   0.38    0.950    0.874     4    11    0.906
+2026-04-19 08:48:58 | V3 (v2+old) Point C                   0.37    0.988    0.868     1    12    0.918

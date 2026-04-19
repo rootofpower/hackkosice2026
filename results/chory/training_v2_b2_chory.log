@@ -1,0 +1,73 @@
+2026-04-19 08:25:59 | Starting EfficientNet v2 Training for pair: chory
+2026-04-19 08:25:59 | Label: Vsetky Choroby vs Zdravi
+2026-04-19 08:25:59 | Backbone: b2 | Seed: 42
+2026-04-19 08:25:59 | Device: cuda
+2026-04-19 08:25:59 |   disease_train: 440 images → dataset/chory/learning/chore
+2026-04-19 08:25:59 |   disease_test: 112 images → dataset/chory/test/chore
+2026-04-19 08:25:59 |   healthy_train: 440 images → dataset/chory/learning/zdravi_ludi/super_proccesed
+2026-04-19 08:25:59 |   healthy_test: 112 images → dataset/chory/test/zdravi_ludi/super_proccesed
+2026-04-19 08:25:59 | Train — disease: 440, healthy: 440, total: 880
+2026-04-19 08:25:59 | Test — disease: 112, healthy: 112, total: 224
+2026-04-19 08:25:59 | Class weights (disease-boosted): [1.5 1. ]
+2026-04-19 08:26:03 | =================================================================
+2026-04-19 08:26:03 | PHASE 1: Frozen backbone — classifier head warm-up
+2026-04-19 08:26:03 | =================================================================
+2026-04-19 08:26:03 | Phase 1 trainable params: 2,818
+2026-04-19 08:26:10 | P1 Epoch 01/15 | train_loss=0.5136 | val_loss=0.3643 | val_f1=0.9285 | lr=1.00e-03
+2026-04-19 08:26:18 | P1 Epoch 02/15 | train_loss=0.4580 | val_loss=0.3542 | val_f1=0.9149 | lr=9.89e-04
+2026-04-19 08:26:25 | P1 Epoch 03/15 | train_loss=0.4332 | val_loss=0.3357 | val_f1=0.9330 | lr=9.57e-04
+2026-04-19 08:26:31 | P1 Epoch 04/15 | train_loss=0.3875 | val_loss=0.3371 | val_f1=0.9195 | lr=9.05e-04
+2026-04-19 08:26:38 | P1 Epoch 05/15 | train_loss=0.3991 | val_loss=0.3375 | val_f1=0.9196 | lr=8.35e-04
+2026-04-19 08:26:44 | P1 Epoch 06/15 | train_loss=0.3906 | val_loss=0.3544 | val_f1=0.8927 | lr=7.50e-04
+2026-04-19 08:26:52 | P1 Epoch 07/15 | train_loss=0.3808 | val_loss=0.3481 | val_f1=0.9060 | lr=6.55e-04
+2026-04-19 08:26:58 | P1 Epoch 08/15 | train_loss=0.3812 | val_loss=0.3367 | val_f1=0.9241 | lr=5.52e-04
+2026-04-19 08:27:05 | P1 Epoch 09/15 | train_loss=0.3751 | val_loss=0.3567 | val_f1=0.8791 | lr=4.48e-04
+2026-04-19 08:27:11 | P1 Epoch 10/15 | train_loss=0.3786 | val_loss=0.3438 | val_f1=0.9062 | lr=3.45e-04
+2026-04-19 08:27:18 | P1 Epoch 11/15 | train_loss=0.3779 | val_loss=0.3259 | val_f1=0.9062 | lr=2.50e-04
+2026-04-19 08:27:18 | Phase 1 early stop at epoch 11 — best F1: 0.9330
+2026-04-19 08:27:18 | Phase 1 complete — best F1: 0.9330
+2026-04-19 08:27:18 | =================================================================
+2026-04-19 08:27:18 | PHASE 2: Deep fine-tune with Focal Loss + Mixup
+2026-04-19 08:27:18 | =================================================================
+2026-04-19 08:27:18 | Phase 2 trainable params: 7,570,266
+2026-04-19 08:27:26 | P2 Epoch 01/60 | train_loss=0.1609 | val_loss=0.0532 | val_f1=0.8969 | bb_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 08:27:32 | P2 Epoch 02/60 | train_loss=0.1346 | val_loss=0.0599 | val_f1=0.8788 | bb_lr=4.88e-06 | head_lr=4.88e-05
+2026-04-19 08:27:39 | P2 Epoch 03/60 | train_loss=0.1371 | val_loss=0.0649 | val_f1=0.8692 | bb_lr=4.52e-06 | head_lr=4.52e-05
+2026-04-19 08:27:46 | P2 Epoch 04/60 | train_loss=0.1123 | val_loss=0.0677 | val_f1=0.8604 | bb_lr=3.97e-06 | head_lr=3.97e-05
+2026-04-19 08:27:53 | P2 Epoch 05/60 | train_loss=0.1108 | val_loss=0.0756 | val_f1=0.8225 | bb_lr=3.27e-06 | head_lr=3.27e-05
+2026-04-19 08:28:01 | P2 Epoch 06/60 | train_loss=0.1135 | val_loss=0.0687 | val_f1=0.8454 | bb_lr=2.50e-06 | head_lr=2.50e-05
+2026-04-19 08:28:08 | P2 Epoch 07/60 | train_loss=0.1209 | val_loss=0.0706 | val_f1=0.8694 | bb_lr=1.73e-06 | head_lr=1.73e-05
+2026-04-19 08:28:14 | P2 Epoch 08/60 | train_loss=0.1170 | val_loss=0.0780 | val_f1=0.8038 | bb_lr=1.03e-06 | head_lr=1.03e-05
+2026-04-19 08:28:21 | P2 Epoch 09/60 | train_loss=0.1242 | val_loss=0.0802 | val_f1=0.8075 | bb_lr=4.77e-07 | head_lr=4.77e-06
+2026-04-19 08:28:29 | P2 Epoch 10/60 | train_loss=0.1379 | val_loss=0.0746 | val_f1=0.8134 | bb_lr=1.22e-07 | head_lr=1.22e-06
+2026-04-19 08:28:36 | P2 Epoch 11/60 | train_loss=0.1122 | val_loss=0.0781 | val_f1=0.8324 | bb_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 08:28:42 | P2 Epoch 12/60 | train_loss=0.1180 | val_loss=0.0704 | val_f1=0.8558 | bb_lr=4.97e-06 | head_lr=4.97e-05
+2026-04-19 08:28:49 | P2 Epoch 13/60 | train_loss=0.1160 | val_loss=0.0773 | val_f1=0.8472 | bb_lr=4.88e-06 | head_lr=4.88e-05
+2026-04-19 08:28:56 | P2 Epoch 14/60 | train_loss=0.1132 | val_loss=0.0857 | val_f1=0.7995 | bb_lr=4.73e-06 | head_lr=4.73e-05
+2026-04-19 08:29:04 | P2 Epoch 15/60 | train_loss=0.0984 | val_loss=0.0817 | val_f1=0.8043 | bb_lr=4.52e-06 | head_lr=4.52e-05
+2026-04-19 08:29:11 | P2 Epoch 16/60 | train_loss=0.1059 | val_loss=0.0794 | val_f1=0.8327 | bb_lr=4.27e-06 | head_lr=4.27e-05
+2026-04-19 08:29:11 | Phase 2 early stop at epoch 16 — best F1: 0.8969
+2026-04-19 08:29:11 | Loading best Phase 2 model for final evaluation...
+2026-04-19 08:29:11 | =================================================================
+2026-04-19 08:29:11 | FINAL EVALUATION
+2026-04-19 08:29:11 | =================================================================
+2026-04-19 08:29:11 | ROC-AUC:           0.9739
+2026-04-19 08:29:11 | F1-macro:          0.8969
+2026-04-19 08:29:11 | Disease recall:    0.9643
+2026-04-19 08:29:11 | Disease precision: 0.8504
+2026-04-19 08:29:11 | False negatives:   4
+2026-04-19 08:29:11 | False positives:   19
+2026-04-19 08:29:11 | 
+Classification report:
+              precision    recall  f1-score   support
+
+      Vsetky       0.85      0.96      0.90       112
+      Zdravi       0.96      0.83      0.89       112
+
+    accuracy                           0.90       224
+   macro avg       0.90      0.90      0.90       224
+weighted avg       0.90      0.90      0.90       224
+
+2026-04-19 08:29:11 | Model saved to: results/chory/efficientnet_v2_b2_chory.pth
+2026-04-19 08:29:11 | Log saved to: results/chory/training_v2_b2_chory.log
+2026-04-19 08:29:11 | Confusion matrix: results/chory/v2_b2_confusion_matrix_chory.png

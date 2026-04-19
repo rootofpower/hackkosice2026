@@ -1,0 +1,78 @@
+2026-04-19 09:13:36 | Starting EfficientNet v2 Training for pair: suche_oko
+2026-04-19 09:13:36 | Label: Suche Oko
+2026-04-19 09:13:36 | Backbone: b0 | Seed: 42
+2026-04-19 09:13:36 | Device: cuda
+2026-04-19 09:13:36 |   disease_train: 74 images → dataset/suche_oko/learning/super_proccesed
+2026-04-19 09:13:36 |   disease_test: 22 images → dataset/suche_oko/test/super_proccesed
+2026-04-19 09:13:36 |   healthy_train: 74 images → dataset/suche_oko/learning/96_zdrave_ludi/96_ludi
+2026-04-19 09:13:36 |   healthy_test: 22 images → dataset/suche_oko/test/96_zdrave_ludi/96_ludi
+2026-04-19 09:13:36 | Train — disease: 74, healthy: 74, total: 148
+2026-04-19 09:13:36 | Test — disease: 22, healthy: 22, total: 44
+2026-04-19 09:13:36 | Class weights (disease-boosted): [1.5 1. ]
+2026-04-19 09:13:36 | =================================================================
+2026-04-19 09:13:36 | PHASE 1: Frozen backbone — classifier head warm-up
+2026-04-19 09:13:36 | =================================================================
+2026-04-19 09:13:36 | Phase 1 trainable params: 2,562
+2026-04-19 09:13:38 | P1 Epoch 01/15 | train_loss=0.5967 | val_loss=0.5044 | val_f1=0.9545 | lr=1.00e-03
+2026-04-19 09:13:39 | P1 Epoch 02/15 | train_loss=0.4039 | val_loss=0.4422 | val_f1=0.8611 | lr=9.89e-04
+2026-04-19 09:13:41 | P1 Epoch 03/15 | train_loss=0.3092 | val_loss=0.4063 | val_f1=0.9315 | lr=9.57e-04
+2026-04-19 09:13:42 | P1 Epoch 04/15 | train_loss=0.2596 | val_loss=0.4006 | val_f1=0.9315 | lr=9.05e-04
+2026-04-19 09:13:44 | P1 Epoch 05/15 | train_loss=0.2438 | val_loss=0.3664 | val_f1=0.9315 | lr=8.35e-04
+2026-04-19 09:13:45 | P1 Epoch 06/15 | train_loss=0.2370 | val_loss=0.3081 | val_f1=1.0000 | lr=7.50e-04
+2026-04-19 09:13:47 | P1 Epoch 07/15 | train_loss=0.2490 | val_loss=0.3009 | val_f1=0.9773 | lr=6.55e-04
+2026-04-19 09:13:50 | P1 Epoch 08/15 | train_loss=0.2732 | val_loss=0.3242 | val_f1=0.9773 | lr=5.52e-04
+2026-04-19 09:13:51 | P1 Epoch 09/15 | train_loss=0.2455 | val_loss=0.2618 | val_f1=0.9773 | lr=4.48e-04
+2026-04-19 09:13:53 | P1 Epoch 10/15 | train_loss=0.2125 | val_loss=0.2828 | val_f1=0.9773 | lr=3.45e-04
+2026-04-19 09:13:54 | P1 Epoch 11/15 | train_loss=0.2502 | val_loss=0.2725 | val_f1=0.9773 | lr=2.50e-04
+2026-04-19 09:13:56 | P1 Epoch 12/15 | train_loss=0.2397 | val_loss=0.2765 | val_f1=0.9773 | lr=1.65e-04
+2026-04-19 09:13:57 | P1 Epoch 13/15 | train_loss=0.2262 | val_loss=0.2513 | val_f1=0.9773 | lr=9.55e-05
+2026-04-19 09:13:58 | P1 Epoch 14/15 | train_loss=0.1916 | val_loss=0.2278 | val_f1=0.9773 | lr=4.32e-05
+2026-04-19 09:13:58 | Phase 1 early stop at epoch 14 — best F1: 1.0000
+2026-04-19 09:13:58 | Phase 1 complete — best F1: 1.0000
+2026-04-19 09:13:58 | =================================================================
+2026-04-19 09:13:58 | PHASE 2: Deep fine-tune with Focal Loss + Mixup
+2026-04-19 09:13:58 | =================================================================
+2026-04-19 09:13:58 | Phase 2 trainable params: 3,944,380
+2026-04-19 09:14:00 | P2 Epoch 01/60 | train_loss=0.1801 | val_loss=0.0603 | val_f1=0.9545 | bb_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 09:14:01 | P2 Epoch 02/60 | train_loss=0.0802 | val_loss=0.0715 | val_f1=0.9315 | bb_lr=4.88e-06 | head_lr=4.88e-05
+2026-04-19 09:14:03 | P2 Epoch 03/60 | train_loss=0.0597 | val_loss=0.0582 | val_f1=0.9773 | bb_lr=4.52e-06 | head_lr=4.52e-05
+2026-04-19 09:14:04 | P2 Epoch 04/60 | train_loss=0.0936 | val_loss=0.0640 | val_f1=0.9545 | bb_lr=3.97e-06 | head_lr=3.97e-05
+2026-04-19 09:14:06 | P2 Epoch 05/60 | train_loss=0.1076 | val_loss=0.0720 | val_f1=0.9545 | bb_lr=3.27e-06 | head_lr=3.27e-05
+2026-04-19 09:14:07 | P2 Epoch 06/60 | train_loss=0.1321 | val_loss=0.0557 | val_f1=0.9773 | bb_lr=2.50e-06 | head_lr=2.50e-05
+2026-04-19 09:14:09 | P2 Epoch 07/60 | train_loss=0.0722 | val_loss=0.0560 | val_f1=0.9545 | bb_lr=1.73e-06 | head_lr=1.73e-05
+2026-04-19 09:14:10 | P2 Epoch 08/60 | train_loss=0.0817 | val_loss=0.0280 | val_f1=0.9773 | bb_lr=1.03e-06 | head_lr=1.03e-05
+2026-04-19 09:14:12 | P2 Epoch 09/60 | train_loss=0.0875 | val_loss=0.0420 | val_f1=0.9773 | bb_lr=4.77e-07 | head_lr=4.77e-06
+2026-04-19 09:14:13 | P2 Epoch 10/60 | train_loss=0.1326 | val_loss=0.0699 | val_f1=0.9545 | bb_lr=1.22e-07 | head_lr=1.22e-06
+2026-04-19 09:14:15 | P2 Epoch 11/60 | train_loss=0.1447 | val_loss=0.0841 | val_f1=0.9315 | bb_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 09:14:16 | P2 Epoch 12/60 | train_loss=0.0942 | val_loss=0.0440 | val_f1=0.9773 | bb_lr=4.97e-06 | head_lr=4.97e-05
+2026-04-19 09:14:18 | P2 Epoch 13/60 | train_loss=0.1905 | val_loss=0.0637 | val_f1=0.9545 | bb_lr=4.88e-06 | head_lr=4.88e-05
+2026-04-19 09:14:19 | P2 Epoch 14/60 | train_loss=0.1077 | val_loss=0.0559 | val_f1=0.9545 | bb_lr=4.73e-06 | head_lr=4.73e-05
+2026-04-19 09:14:21 | P2 Epoch 15/60 | train_loss=0.0705 | val_loss=0.0463 | val_f1=0.9773 | bb_lr=4.52e-06 | head_lr=4.52e-05
+2026-04-19 09:14:24 | P2 Epoch 16/60 | train_loss=0.1216 | val_loss=0.0648 | val_f1=0.9545 | bb_lr=4.27e-06 | head_lr=4.27e-05
+2026-04-19 09:14:26 | P2 Epoch 17/60 | train_loss=0.0864 | val_loss=0.0345 | val_f1=0.9773 | bb_lr=3.97e-06 | head_lr=3.97e-05
+2026-04-19 09:14:27 | P2 Epoch 18/60 | train_loss=0.0725 | val_loss=0.0340 | val_f1=0.9773 | bb_lr=3.63e-06 | head_lr=3.63e-05
+2026-04-19 09:14:27 | Phase 2 early stop at epoch 18 — best F1: 0.9773
+2026-04-19 09:14:27 | Loading best Phase 2 model for final evaluation...
+2026-04-19 09:14:28 | =================================================================
+2026-04-19 09:14:28 | FINAL EVALUATION
+2026-04-19 09:14:28 | =================================================================
+2026-04-19 09:14:28 | ROC-AUC:           1.0000
+2026-04-19 09:14:28 | F1-macro:          0.9773
+2026-04-19 09:14:28 | Disease recall:    0.9545
+2026-04-19 09:14:28 | Disease precision: 1.0000
+2026-04-19 09:14:28 | False negatives:   1
+2026-04-19 09:14:28 | False positives:   0
+2026-04-19 09:14:28 | 
+Classification report:
+              precision    recall  f1-score   support
+
+       Suche       1.00      0.95      0.98        22
+      Zdravi       0.96      1.00      0.98        22
+
+    accuracy                           0.98        44
+   macro avg       0.98      0.98      0.98        44
+weighted avg       0.98      0.98      0.98        44
+
+2026-04-19 09:14:28 | Model saved to: results/suche_oko/efficientnet_v2_b0_suche_oko.pth
+2026-04-19 09:14:28 | Log saved to: results/suche_oko/training_v2_b0_suche_oko.log
+2026-04-19 09:14:28 | Confusion matrix: results/suche_oko/v2_b0_confusion_matrix_suche_oko.png

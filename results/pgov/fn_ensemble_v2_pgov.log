@@ -1,0 +1,67 @@
+2026-04-19 09:09:25 | Starting fn_ensemble v2 pipeline for pair: pgov
+2026-04-19 09:09:25 | Label: PGOV + Suche Oko
+2026-04-19 09:09:25 | Backbone: b0
+2026-04-19 09:09:25 |   disease_train: 440 images → dataset/pgov/learning/pgov
+2026-04-19 09:09:25 |   disease_test: 112 images → dataset/pgov/test/pgov
+2026-04-19 09:09:25 |   healthy_train: 440 images → dataset/pgov/learning/zdravi_ludi/super_proccesed
+2026-04-19 09:09:25 |   healthy_test: 112 images → dataset/pgov/test/zdravi_ludi/super_proccesed
+2026-04-19 09:09:25 | Train — disease: 440, healthy: 440, total: 880
+2026-04-19 09:09:25 | Test — disease: 112, healthy: 112, total: 224
+2026-04-19 09:09:26 | Loading Model A (seed=42): results/pgov/efficientnet_v2_b0_pgov.pth
+2026-04-19 09:09:26 | Model B not found (results/pgov/efficientnet_v2_b0_s123_pgov.pth), running single-model TTA only.
+2026-04-19 09:09:26 | Loading Old Model (finetune B0): results/pgov/efficientnet_finetuned_pgov.pth
+2026-04-19 09:09:26 | Ensemble models: ['v2_A', 'old_FT']
+2026-04-19 09:13:33 | === Ensemble Variant 1: Single Model A + TTA ===
+2026-04-19 09:13:33 | Point A (Maximize Recall):
+2026-04-19 09:13:33 |   Threshold:         0.20
+2026-04-19 09:13:33 |   Disease recall:    1.0000
+2026-04-19 09:13:33 |   Disease precision: 0.9032
+2026-04-19 09:13:33 |   False negatives:   0
+2026-04-19 09:13:33 |   False positives:   12
+2026-04-19 09:13:33 |   F1-macro:          0.9463
+2026-04-19 09:13:33 | Point B (Recall >= 0.95 best precision):
+2026-04-19 09:13:33 |   Threshold:         0.28
+2026-04-19 09:13:33 |   Disease recall:    1.0000
+2026-04-19 09:13:33 |   Disease precision: 1.0000
+2026-04-19 09:13:33 |   False negatives:   0
+2026-04-19 09:13:33 |   False positives:   0
+2026-04-19 09:13:33 |   F1-macro:          1.0000
+2026-04-19 09:13:33 | Point C (Maximize F1-macro):
+2026-04-19 09:13:33 |   Threshold:         0.28
+2026-04-19 09:13:33 |   Disease recall:    1.0000
+2026-04-19 09:13:33 |   Disease precision: 1.0000
+2026-04-19 09:13:33 |   False negatives:   0
+2026-04-19 09:13:33 |   False positives:   0
+2026-04-19 09:13:33 |   F1-macro:          1.0000
+2026-04-19 09:13:33 | === Ensemble Variant 3: Avg(v2_A + old_FT) ===
+2026-04-19 09:13:33 | Point A (Maximize Recall):
+2026-04-19 09:13:33 |   Threshold:         0.20
+2026-04-19 09:13:33 |   Disease recall:    1.0000
+2026-04-19 09:13:33 |   Disease precision: 0.9256
+2026-04-19 09:13:33 |   False negatives:   0
+2026-04-19 09:13:33 |   False positives:   9
+2026-04-19 09:13:33 |   F1-macro:          0.9598
+2026-04-19 09:13:33 | Point B (Recall >= 0.95 best precision):
+2026-04-19 09:13:33 |   Threshold:         0.32
+2026-04-19 09:13:33 |   Disease recall:    1.0000
+2026-04-19 09:13:33 |   Disease precision: 1.0000
+2026-04-19 09:13:33 |   False negatives:   0
+2026-04-19 09:13:33 |   False positives:   0
+2026-04-19 09:13:33 |   F1-macro:          1.0000
+2026-04-19 09:13:33 | Point C (Maximize F1-macro):
+2026-04-19 09:13:33 |   Threshold:         0.32
+2026-04-19 09:13:33 |   Disease recall:    1.0000
+2026-04-19 09:13:33 |   Disease precision: 1.0000
+2026-04-19 09:13:33 |   False negatives:   0
+2026-04-19 09:13:33 |   False positives:   0
+2026-04-19 09:13:33 |   F1-macro:          1.0000
+2026-04-19 09:13:33 | ================================================================================
+2026-04-19 09:13:33 | ENSEMBLE COMPARISON — target: FN=0, minimize FP
+2026-04-19 09:13:33 | ================================================================================
+2026-04-19 09:13:33 | Strategy                                 t   Recall     Prec    FN    FP       F1
+2026-04-19 09:13:33 | V1 (Single+TTA) Point A               0.20    1.000    0.903     0    12    0.946
+2026-04-19 09:13:33 | V1 (Single+TTA) Point B               0.28    1.000    1.000     0     0    1.000
+2026-04-19 09:13:33 | V1 (Single+TTA) Point C               0.28    1.000    1.000     0     0    1.000
+2026-04-19 09:13:33 | V3 (v2+old) Point A                   0.20    1.000    0.926     0     9    0.960
+2026-04-19 09:13:33 | V3 (v2+old) Point B                   0.32    1.000    1.000     0     0    1.000
+2026-04-19 09:13:33 | V3 (v2+old) Point C                   0.32    1.000    1.000     0     0    1.000

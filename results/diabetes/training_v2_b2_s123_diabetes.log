@@ -1,0 +1,72 @@
+2026-04-19 08:41:30 | Starting EfficientNet v2 Training for pair: diabetes
+2026-04-19 08:41:30 | Label: Diabetes + Suche Oko
+2026-04-19 08:41:30 | Backbone: b2 | Seed: 123
+2026-04-19 08:41:30 | Device: cuda
+2026-04-19 08:41:30 |   disease_train: 352 images → dataset/diabetes/learning/diabetes
+2026-04-19 08:41:30 |   disease_test: 80 images → dataset/diabetes/test/diabetes
+2026-04-19 08:41:30 |   healthy_train: 352 images → dataset/diabetes/learning/zdravi_ludi/super_proccesed
+2026-04-19 08:41:30 |   healthy_test: 80 images → dataset/diabetes/test/zdravi_ludi/super_proccesed
+2026-04-19 08:41:30 | Train — disease: 352, healthy: 352, total: 704
+2026-04-19 08:41:30 | Test — disease: 80, healthy: 80, total: 160
+2026-04-19 08:41:30 | Class weights (disease-boosted): [1.5 1. ]
+2026-04-19 08:41:30 | =================================================================
+2026-04-19 08:41:30 | PHASE 1: Frozen backbone — classifier head warm-up
+2026-04-19 08:41:30 | =================================================================
+2026-04-19 08:41:30 | Phase 1 trainable params: 2,818
+2026-04-19 08:41:35 | P1 Epoch 01/15 | train_loss=0.5546 | val_loss=0.4647 | val_f1=0.8937 | lr=1.00e-03
+2026-04-19 08:41:40 | P1 Epoch 02/15 | train_loss=0.4631 | val_loss=0.4740 | val_f1=0.8498 | lr=9.89e-04
+2026-04-19 08:41:46 | P1 Epoch 03/15 | train_loss=0.4543 | val_loss=0.4691 | val_f1=0.8293 | lr=9.57e-04
+2026-04-19 08:41:51 | P1 Epoch 04/15 | train_loss=0.4174 | val_loss=0.4355 | val_f1=0.8494 | lr=9.05e-04
+2026-04-19 08:41:57 | P1 Epoch 05/15 | train_loss=0.4046 | val_loss=0.4422 | val_f1=0.8301 | lr=8.35e-04
+2026-04-19 08:42:02 | P1 Epoch 06/15 | train_loss=0.4164 | val_loss=0.4902 | val_f1=0.7826 | lr=7.50e-04
+2026-04-19 08:42:07 | P1 Epoch 07/15 | train_loss=0.3809 | val_loss=0.4633 | val_f1=0.7901 | lr=6.55e-04
+2026-04-19 08:42:13 | P1 Epoch 08/15 | train_loss=0.3806 | val_loss=0.4609 | val_f1=0.8022 | lr=5.52e-04
+2026-04-19 08:42:18 | P1 Epoch 09/15 | train_loss=0.4211 | val_loss=0.4587 | val_f1=0.8029 | lr=4.48e-04
+2026-04-19 08:42:18 | Phase 1 early stop at epoch 9 — best F1: 0.8937
+2026-04-19 08:42:18 | Phase 1 complete — best F1: 0.8937
+2026-04-19 08:42:18 | =================================================================
+2026-04-19 08:42:18 | PHASE 2: Deep fine-tune with Focal Loss + Mixup
+2026-04-19 08:42:18 | =================================================================
+2026-04-19 08:42:18 | Phase 2 trainable params: 7,570,266
+2026-04-19 08:42:23 | P2 Epoch 01/60 | train_loss=0.1410 | val_loss=0.0968 | val_f1=0.8494 | bb_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 08:42:30 | P2 Epoch 02/60 | train_loss=0.1377 | val_loss=0.0887 | val_f1=0.8748 | bb_lr=4.88e-06 | head_lr=4.88e-05
+2026-04-19 08:42:36 | P2 Epoch 03/60 | train_loss=0.1180 | val_loss=0.0917 | val_f1=0.8430 | bb_lr=4.52e-06 | head_lr=4.52e-05
+2026-04-19 08:42:41 | P2 Epoch 04/60 | train_loss=0.1206 | val_loss=0.0903 | val_f1=0.8427 | bb_lr=3.97e-06 | head_lr=3.97e-05
+2026-04-19 08:42:47 | P2 Epoch 05/60 | train_loss=0.1173 | val_loss=0.0942 | val_f1=0.8222 | bb_lr=3.27e-06 | head_lr=3.27e-05
+2026-04-19 08:42:52 | P2 Epoch 06/60 | train_loss=0.1159 | val_loss=0.0909 | val_f1=0.8222 | bb_lr=2.50e-06 | head_lr=2.50e-05
+2026-04-19 08:42:57 | P2 Epoch 07/60 | train_loss=0.1175 | val_loss=0.0904 | val_f1=0.8553 | bb_lr=1.73e-06 | head_lr=1.73e-05
+2026-04-19 08:43:04 | P2 Epoch 08/60 | train_loss=0.1105 | val_loss=0.0927 | val_f1=0.8362 | bb_lr=1.03e-06 | head_lr=1.03e-05
+2026-04-19 08:43:09 | P2 Epoch 09/60 | train_loss=0.1093 | val_loss=0.0936 | val_f1=0.8293 | bb_lr=4.77e-07 | head_lr=4.77e-06
+2026-04-19 08:43:15 | P2 Epoch 10/60 | train_loss=0.1187 | val_loss=0.0895 | val_f1=0.8283 | bb_lr=1.22e-07 | head_lr=1.22e-06
+2026-04-19 08:43:20 | P2 Epoch 11/60 | train_loss=0.1175 | val_loss=0.0929 | val_f1=0.8359 | bb_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 08:43:26 | P2 Epoch 12/60 | train_loss=0.1089 | val_loss=0.0884 | val_f1=0.8228 | bb_lr=4.97e-06 | head_lr=4.97e-05
+2026-04-19 08:43:31 | P2 Epoch 13/60 | train_loss=0.1081 | val_loss=0.0944 | val_f1=0.8082 | bb_lr=4.88e-06 | head_lr=4.88e-05
+2026-04-19 08:43:38 | P2 Epoch 14/60 | train_loss=0.1134 | val_loss=0.0987 | val_f1=0.7324 | bb_lr=4.73e-06 | head_lr=4.73e-05
+2026-04-19 08:43:43 | P2 Epoch 15/60 | train_loss=0.1048 | val_loss=0.0916 | val_f1=0.7817 | bb_lr=4.52e-06 | head_lr=4.52e-05
+2026-04-19 08:43:49 | P2 Epoch 16/60 | train_loss=0.1054 | val_loss=0.0899 | val_f1=0.7440 | bb_lr=4.27e-06 | head_lr=4.27e-05
+2026-04-19 08:43:54 | P2 Epoch 17/60 | train_loss=0.1101 | val_loss=0.0948 | val_f1=0.7454 | bb_lr=3.97e-06 | head_lr=3.97e-05
+2026-04-19 08:43:54 | Phase 2 early stop at epoch 17 — best F1: 0.8748
+2026-04-19 08:43:54 | Loading best Phase 2 model for final evaluation...
+2026-04-19 08:43:55 | =================================================================
+2026-04-19 08:43:55 | FINAL EVALUATION
+2026-04-19 08:43:55 | =================================================================
+2026-04-19 08:43:55 | ROC-AUC:           0.9192
+2026-04-19 08:43:55 | F1-macro:          0.8748
+2026-04-19 08:43:55 | Disease recall:    0.9125
+2026-04-19 08:43:55 | Disease precision: 0.8488
+2026-04-19 08:43:55 | False negatives:   7
+2026-04-19 08:43:55 | False positives:   13
+2026-04-19 08:43:55 | 
+Classification report:
+              precision    recall  f1-score   support
+
+    Diabetes       0.85      0.91      0.88        80
+      Zdravi       0.91      0.84      0.87        80
+
+    accuracy                           0.88       160
+   macro avg       0.88      0.88      0.87       160
+weighted avg       0.88      0.88      0.87       160
+
+2026-04-19 08:43:55 | Model saved to: results/diabetes/efficientnet_v2_b2_s123_diabetes.pth
+2026-04-19 08:43:55 | Log saved to: results/diabetes/training_v2_b2_s123_diabetes.log
+2026-04-19 08:43:55 | Confusion matrix: results/diabetes/v2_b2_s123_confusion_matrix_diabetes.png
