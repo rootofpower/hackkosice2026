@@ -1,0 +1,40 @@
+2026-04-19 04:25:12 | Starting EfficientNet Fine-Tuning for pair: pgov
+2026-04-19 04:25:13 | Loading warm-up checkpoint from results/pgov/efficientnet_frozen_pgov.pth...
+2026-04-19 04:25:13 | Fine-tune trainable params: 3,158,302
+2026-04-19 04:25:16 | FT Epoch 01/40 | train_loss=0.0791 | val_loss=0.0504 | val_f1_macro=0.9819 | backbone_lr=1.00e-05 | head_lr=1.00e-04
+2026-04-19 04:25:19 | FT Epoch 02/40 | train_loss=0.0687 | val_loss=0.0502 | val_f1_macro=0.9864 | backbone_lr=9.98e-06 | head_lr=9.98e-05
+2026-04-19 04:25:22 | FT Epoch 03/40 | train_loss=0.0673 | val_loss=0.0441 | val_f1_macro=0.9909 | backbone_lr=9.94e-06 | head_lr=9.94e-05
+2026-04-19 04:25:25 | FT Epoch 04/40 | train_loss=0.0875 | val_loss=0.0292 | val_f1_macro=0.9955 | backbone_lr=9.86e-06 | head_lr=9.86e-05
+2026-04-19 04:25:28 | FT Epoch 05/40 | train_loss=0.0584 | val_loss=0.0364 | val_f1_macro=0.9864 | backbone_lr=9.76e-06 | head_lr=9.76e-05
+2026-04-19 04:25:31 | FT Epoch 06/40 | train_loss=0.0418 | val_loss=0.0307 | val_f1_macro=0.9909 | backbone_lr=9.62e-06 | head_lr=9.62e-05
+2026-04-19 04:25:34 | FT Epoch 07/40 | train_loss=0.0591 | val_loss=0.0273 | val_f1_macro=0.9955 | backbone_lr=9.46e-06 | head_lr=9.46e-05
+2026-04-19 04:25:37 | FT Epoch 08/40 | train_loss=0.0452 | val_loss=0.0328 | val_f1_macro=0.9909 | backbone_lr=9.26e-06 | head_lr=9.26e-05
+2026-04-19 04:25:40 | FT Epoch 09/40 | train_loss=0.0454 | val_loss=0.0226 | val_f1_macro=0.9955 | backbone_lr=9.05e-06 | head_lr=9.05e-05
+2026-04-19 04:25:43 | FT Epoch 10/40 | train_loss=0.0584 | val_loss=0.0381 | val_f1_macro=0.9864 | backbone_lr=8.80e-06 | head_lr=8.80e-05
+2026-04-19 04:25:46 | FT Epoch 11/40 | train_loss=0.0765 | val_loss=0.0196 | val_f1_macro=0.9955 | backbone_lr=8.54e-06 | head_lr=8.54e-05
+2026-04-19 04:25:49 | FT Epoch 12/40 | train_loss=0.0362 | val_loss=0.0243 | val_f1_macro=0.9955 | backbone_lr=8.25e-06 | head_lr=8.25e-05
+2026-04-19 04:25:52 | FT Epoch 13/40 | train_loss=0.0365 | val_loss=0.0206 | val_f1_macro=0.9955 | backbone_lr=7.94e-06 | head_lr=7.94e-05
+2026-04-19 04:25:55 | FT Epoch 14/40 | train_loss=0.0392 | val_loss=0.0227 | val_f1_macro=0.9955 | backbone_lr=7.61e-06 | head_lr=7.61e-05
+2026-04-19 04:25:55 | Early stopping at FT epoch 14 — best F1: 0.9955
+2026-04-19 04:25:55 | Loading best fine-tuned model for final evaluation on test set...
+2026-04-19 04:25:56 | =================================================================
+2026-04-19 04:25:56 | FINE-TUNING EVALUATION
+2026-04-19 04:25:56 | =================================================================
+2026-04-19 04:25:56 | ROC-AUC:           0.9999
+2026-04-19 04:25:56 | F1-macro:          0.9955
+2026-04-19 04:25:56 | Disease recall:    1.0000
+2026-04-19 04:25:56 | Disease precision: 0.9911
+2026-04-19 04:25:56 | False negatives:   0
+2026-04-19 04:25:56 | 
+Classification report:
+2026-04-19 04:25:56 | 
+              precision    recall  f1-score   support
+
+        pgov       0.99      1.00      1.00       111
+ zdravi_ludi       1.00      0.99      1.00       110
+
+    accuracy                           1.00       221
+   macro avg       1.00      1.00      1.00       221
+weighted avg       1.00      1.00      1.00       221
+
+2026-04-19 04:25:56 | Log saved to: results/pgov/training_finetune_pgov.log

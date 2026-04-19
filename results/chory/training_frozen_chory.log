@@ -1,0 +1,10 @@
+2026-04-19 04:36:10 | Starting EfficientNet Frozen Training for pair: chory
+2026-04-19 04:36:10 | Disease class: chore
+2026-04-19 04:36:10 | Healthy class: zdravi_ludi
+2026-04-19 04:36:10 | Total images found: 984
+2026-04-19 04:36:10 | Class 0 (chore): 552
+2026-04-19 04:36:10 | Class 1 (zdravi_ludi): 432
+2026-04-19 04:36:10 | Training samples: 787
+2026-04-19 04:36:10 | Test samples: 197
+2026-04-19 04:36:10 | Device: cuda
+2026-04-19 04:36:10 | Trainable params: 2,562

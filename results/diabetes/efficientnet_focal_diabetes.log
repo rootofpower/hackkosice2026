@@ -1,0 +1,38 @@
+2026-04-19 04:21:24 | Starting EfficientNet Focal Retraining for pair: diabetes
+2026-04-19 04:21:25 | Loading finetuned checkpoint from results/diabetes/efficientnet_finetuned_diabetes.pth...
+2026-04-19 04:21:25 | Focal retrain trainable params: 3,158,302
+2026-04-19 04:21:28 | Epoch 01/20 | train_loss=0.0943 | val_loss=0.0694 | val_f1_macro=0.9190 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 04:21:30 | Epoch 02/20 | train_loss=0.0892 | val_loss=0.0977 | val_f1_macro=0.9189 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 04:21:32 | Epoch 03/20 | train_loss=0.0912 | val_loss=0.0687 | val_f1_macro=0.9191 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 04:21:35 | Epoch 04/20 | train_loss=0.0844 | val_loss=0.0741 | val_f1_macro=0.9189 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 04:21:37 | Epoch 05/20 | train_loss=0.0689 | val_loss=0.0695 | val_f1_macro=0.9190 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 04:21:39 | Epoch 06/20 | train_loss=0.0630 | val_loss=0.0659 | val_f1_macro=0.9132 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 04:21:42 | Epoch 07/20 | train_loss=0.0804 | val_loss=0.0846 | val_f1_macro=0.9130 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 04:21:44 | Epoch 08/20 | train_loss=0.0941 | val_loss=0.0755 | val_f1_macro=0.8900 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 04:21:47 | Epoch 09/20 | train_loss=0.0767 | val_loss=0.0732 | val_f1_macro=0.9074 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 04:21:49 | Epoch 10/20 | train_loss=0.0660 | val_loss=0.0716 | val_f1_macro=0.9131 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 04:21:51 | Epoch 11/20 | train_loss=0.0910 | val_loss=0.0507 | val_f1_macro=0.9191 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 04:21:51 | Early stopping at epoch 11 — best F1: 0.9191
+2026-04-19 04:21:51 | Loading best focal model for final evaluation on test set...
+2026-04-19 04:21:52 | =================================================================
+2026-04-19 04:21:52 | FOCAL RETRAINING EVALUATION
+2026-04-19 04:21:52 | =================================================================
+2026-04-19 04:21:52 | ROC-AUC:           0.9661
+2026-04-19 04:21:52 | F1-macro:          0.9191
+2026-04-19 04:21:52 | Disease recall:    0.8966
+2026-04-19 04:21:52 | Disease precision: 0.9398
+2026-04-19 04:21:52 | False negatives:   9
+2026-04-19 04:21:52 | 
+Classification report:
+2026-04-19 04:21:52 | 
+              precision    recall  f1-score   support
+
+    diabetes       0.94      0.90      0.92        87
+ zdravi_ludi       0.90      0.94      0.92        86
+
+    accuracy                           0.92       173
+   macro avg       0.92      0.92      0.92       173
+weighted avg       0.92      0.92      0.92       173
+
+2026-04-19 04:21:52 | Focal model successfully trained and saved to results/diabetes/efficientnet_focal_diabetes.pth
+2026-04-19 04:21:52 | Log saved to: results/diabetes/efficientnet_focal_diabetes.log

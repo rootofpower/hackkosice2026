@@ -1,0 +1,37 @@
+2026-04-19 04:19:18 | Starting EfficientNet Frozen Training for pair: diabetes
+2026-04-19 04:19:18 | Disease class: diabetes
+2026-04-19 04:19:18 | Healthy class: zdravi_ludi
+2026-04-19 04:19:18 | Total images found: 864
+2026-04-19 04:19:18 | Class 0 (diabetes): 432
+2026-04-19 04:19:18 | Class 1 (zdravi_ludi): 432
+2026-04-19 04:19:18 | Training samples: 691
+2026-04-19 04:19:18 | Test samples: 173
+2026-04-19 04:19:18 | Device: cuda
+2026-04-19 04:19:18 | Trainable params: 2,562
+2026-04-19 04:19:21 | Epoch 01/60 | train_loss=0.5521 | val_loss=0.5472 | val_f1_macro=0.7214 | lr=1.00e-03
+2026-04-19 04:19:24 | Epoch 02/60 | train_loss=0.4682 | val_loss=0.4371 | val_f1_macro=0.8309 | lr=9.99e-04
+2026-04-19 04:19:26 | Epoch 03/60 | train_loss=0.4404 | val_loss=0.3970 | val_f1_macro=0.8493 | lr=9.97e-04
+2026-04-19 04:19:28 | Epoch 04/60 | train_loss=0.4195 | val_loss=0.4214 | val_f1_macro=0.8235 | lr=9.94e-04
+2026-04-19 04:19:31 | Epoch 05/60 | train_loss=0.4114 | val_loss=0.4002 | val_f1_macro=0.8296 | lr=9.89e-04
+2026-04-19 04:19:33 | Epoch 06/60 | train_loss=0.3935 | val_loss=0.3888 | val_f1_macro=0.8357 | lr=9.83e-04
+2026-04-19 04:19:35 | Epoch 07/60 | train_loss=0.4101 | val_loss=0.3515 | val_f1_macro=0.8668 | lr=9.76e-04
+2026-04-19 04:19:37 | Epoch 08/60 | train_loss=0.3760 | val_loss=0.3807 | val_f1_macro=0.8479 | lr=9.67e-04
+2026-04-19 04:19:40 | Epoch 09/60 | train_loss=0.3904 | val_loss=0.3496 | val_f1_macro=0.8662 | lr=9.57e-04
+2026-04-19 04:19:42 | Epoch 10/60 | train_loss=0.3942 | val_loss=0.3377 | val_f1_macro=0.8542 | lr=9.46e-04
+2026-04-19 04:19:44 | Epoch 11/60 | train_loss=0.3866 | val_loss=0.3436 | val_f1_macro=0.8602 | lr=9.33e-04
+2026-04-19 04:19:47 | Epoch 12/60 | train_loss=0.3538 | val_loss=0.3568 | val_f1_macro=0.8362 | lr=9.19e-04
+2026-04-19 04:19:49 | Epoch 13/60 | train_loss=0.3685 | val_loss=0.3474 | val_f1_macro=0.8780 | lr=9.05e-04
+2026-04-19 04:19:51 | Epoch 14/60 | train_loss=0.3544 | val_loss=0.3568 | val_f1_macro=0.8723 | lr=8.89e-04
+2026-04-19 04:19:54 | Epoch 15/60 | train_loss=0.3300 | val_loss=0.3108 | val_f1_macro=0.8605 | lr=8.72e-04
+2026-04-19 04:19:56 | Epoch 16/60 | train_loss=0.3596 | val_loss=0.3409 | val_f1_macro=0.8486 | lr=8.54e-04
+2026-04-19 04:19:58 | Epoch 17/60 | train_loss=0.3768 | val_loss=0.3283 | val_f1_macro=0.8552 | lr=8.35e-04
+2026-04-19 04:20:01 | Epoch 18/60 | train_loss=0.3819 | val_loss=0.3118 | val_f1_macro=0.8727 | lr=8.15e-04
+2026-04-19 04:20:03 | Epoch 19/60 | train_loss=0.3629 | val_loss=0.3209 | val_f1_macro=0.8780 | lr=7.94e-04
+2026-04-19 04:20:05 | Epoch 20/60 | train_loss=0.3239 | val_loss=0.3516 | val_f1_macro=0.8548 | lr=7.72e-04
+2026-04-19 04:20:08 | Epoch 21/60 | train_loss=0.3503 | val_loss=0.3145 | val_f1_macro=0.8553 | lr=7.50e-04
+2026-04-19 04:20:10 | Epoch 22/60 | train_loss=0.3385 | val_loss=0.3323 | val_f1_macro=0.8545 | lr=7.27e-04
+2026-04-19 04:20:12 | Epoch 23/60 | train_loss=0.3647 | val_loss=0.3101 | val_f1_macro=0.8725 | lr=7.03e-04
+2026-04-19 04:20:15 | Epoch 24/60 | train_loss=0.3623 | val_loss=0.3044 | val_f1_macro=0.8668 | lr=6.79e-04
+2026-04-19 04:20:17 | Epoch 25/60 | train_loss=0.3717 | val_loss=0.3470 | val_f1_macro=0.8542 | lr=6.55e-04
+2026-04-19 04:20:17 | Early stopping at epoch 25 — best F1: 0.8780
+2026-04-19 04:20:17 | Finished. Best model saved to: results/diabetes/efficientnet_frozen_diabetes.pth
