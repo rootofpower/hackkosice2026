@@ -1,41 +1,41 @@
-2026-04-19 06:36:25 | Starting EfficientNet Focal Retraining for pair: chory
-2026-04-19 06:36:25 | Label: Vsetky Choroby vs Zdravi
-2026-04-19 06:36:25 |   disease_train: 440 images → dataset/chory/learning/chore
-2026-04-19 06:36:25 |   disease_test: 112 images → dataset/chory/test/chore
-2026-04-19 06:36:25 |   healthy_train: 440 images → dataset/chory/learning/zdravi_ludi/super_proccesed
-2026-04-19 06:36:25 |   healthy_test: 112 images → dataset/chory/test/zdravi_ludi/super_proccesed
-2026-04-19 06:36:25 | Train — disease: 440, healthy: 440, total: 880
-2026-04-19 06:36:25 | Test — disease: 112, healthy: 112, total: 224
-2026-04-19 06:36:25 | Loading finetuned checkpoint from results/chory/efficientnet_finetuned_chory.pth...
-2026-04-19 06:36:25 | Focal retrain trainable params: 3,158,302
-2026-04-19 06:36:29 | Epoch 01/20 | train_loss=0.0394 | val_loss=0.0219 | val_f1_macro=0.9553 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 06:36:32 | Epoch 02/20 | train_loss=0.0555 | val_loss=0.0394 | val_f1_macro=0.9191 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 06:36:34 | Epoch 03/20 | train_loss=0.0417 | val_loss=0.0342 | val_f1_macro=0.9327 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 06:36:37 | Epoch 04/20 | train_loss=0.0482 | val_loss=0.0303 | val_f1_macro=0.9418 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 06:36:40 | Epoch 05/20 | train_loss=0.0464 | val_loss=0.0282 | val_f1_macro=0.9553 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 06:36:43 | Epoch 06/20 | train_loss=0.0389 | val_loss=0.0375 | val_f1_macro=0.9146 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 06:36:46 | Epoch 07/20 | train_loss=0.0415 | val_loss=0.0283 | val_f1_macro=0.9598 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 06:36:48 | Epoch 08/20 | train_loss=0.0346 | val_loss=0.0356 | val_f1_macro=0.9237 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 06:36:51 | Epoch 09/20 | train_loss=0.0358 | val_loss=0.0415 | val_f1_macro=0.9008 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 06:36:54 | Epoch 10/20 | train_loss=0.0441 | val_loss=0.0295 | val_f1_macro=0.9373 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 06:36:57 | Epoch 11/20 | train_loss=0.0448 | val_loss=0.0303 | val_f1_macro=0.9508 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 06:37:00 | Epoch 12/20 | train_loss=0.0531 | val_loss=0.0424 | val_f1_macro=0.9100 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 06:37:03 | Epoch 13/20 | train_loss=0.0394 | val_loss=0.0389 | val_f1_macro=0.9054 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 06:37:06 | Epoch 14/20 | train_loss=0.0363 | val_loss=0.0246 | val_f1_macro=0.9553 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 06:37:08 | Epoch 15/20 | train_loss=0.0445 | val_loss=0.0335 | val_f1_macro=0.9508 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 06:37:08 | Early stopping at epoch 15 — best F1: 0.9598
-2026-04-19 06:37:08 | Loading best focal model for final evaluation on test set...
-2026-04-19 06:37:09 | =================================================================
-2026-04-19 06:37:09 | FOCAL RETRAINING EVALUATION
-2026-04-19 06:37:09 | =================================================================
-2026-04-19 06:37:09 | ROC-AUC:           0.9994
-2026-04-19 06:37:09 | F1-macro:          0.9598
-2026-04-19 06:37:09 | Disease recall:    1.0000
-2026-04-19 06:37:09 | Disease precision: 0.9256
-2026-04-19 06:37:09 | False negatives:   0
-2026-04-19 06:37:09 | 
+2026-04-19 07:39:41 | Starting EfficientNet Focal Retraining for pair: chory
+2026-04-19 07:39:41 | Label: Vsetky Choroby vs Zdravi
+2026-04-19 07:39:41 |   disease_train: 440 images → dataset/chory/learning/chore
+2026-04-19 07:39:41 |   disease_test: 112 images → dataset/chory/test/chore
+2026-04-19 07:39:41 |   healthy_train: 440 images → dataset/chory/learning/zdravi_ludi/super_proccesed
+2026-04-19 07:39:41 |   healthy_test: 112 images → dataset/chory/test/zdravi_ludi/super_proccesed
+2026-04-19 07:39:41 | Train — disease: 440, healthy: 440, total: 880
+2026-04-19 07:39:41 | Test — disease: 112, healthy: 112, total: 224
+2026-04-19 07:39:41 | Loading finetuned checkpoint from results/chory/efficientnet_finetuned_chory.pth...
+2026-04-19 07:39:41 | Focal retrain trainable params: 3,158,302
+2026-04-19 07:39:44 | Epoch 01/20 | train_loss=0.0394 | val_loss=0.0219 | val_f1_macro=0.9553 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:39:47 | Epoch 02/20 | train_loss=0.0555 | val_loss=0.0394 | val_f1_macro=0.9191 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:39:50 | Epoch 03/20 | train_loss=0.0417 | val_loss=0.0342 | val_f1_macro=0.9327 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:39:53 | Epoch 04/20 | train_loss=0.0482 | val_loss=0.0303 | val_f1_macro=0.9418 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:39:56 | Epoch 05/20 | train_loss=0.0464 | val_loss=0.0282 | val_f1_macro=0.9553 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:39:59 | Epoch 06/20 | train_loss=0.0389 | val_loss=0.0375 | val_f1_macro=0.9146 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:40:01 | Epoch 07/20 | train_loss=0.0415 | val_loss=0.0283 | val_f1_macro=0.9598 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:40:05 | Epoch 08/20 | train_loss=0.0346 | val_loss=0.0356 | val_f1_macro=0.9237 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:40:08 | Epoch 09/20 | train_loss=0.0358 | val_loss=0.0415 | val_f1_macro=0.9008 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:40:11 | Epoch 10/20 | train_loss=0.0441 | val_loss=0.0295 | val_f1_macro=0.9373 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:40:14 | Epoch 11/20 | train_loss=0.0448 | val_loss=0.0303 | val_f1_macro=0.9508 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:40:17 | Epoch 12/20 | train_loss=0.0531 | val_loss=0.0424 | val_f1_macro=0.9100 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:40:19 | Epoch 13/20 | train_loss=0.0394 | val_loss=0.0389 | val_f1_macro=0.9054 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:40:22 | Epoch 14/20 | train_loss=0.0363 | val_loss=0.0246 | val_f1_macro=0.9553 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:40:25 | Epoch 15/20 | train_loss=0.0445 | val_loss=0.0335 | val_f1_macro=0.9508 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:40:25 | Early stopping at epoch 15 — best F1: 0.9598
+2026-04-19 07:40:25 | Loading best focal model for final evaluation on test set...
+2026-04-19 07:40:26 | =================================================================
+2026-04-19 07:40:26 | FOCAL RETRAINING EVALUATION
+2026-04-19 07:40:26 | =================================================================
+2026-04-19 07:40:26 | ROC-AUC:           0.9994
+2026-04-19 07:40:26 | F1-macro:          0.9598
+2026-04-19 07:40:26 | Disease recall:    1.0000
+2026-04-19 07:40:26 | Disease precision: 0.9256
+2026-04-19 07:40:26 | False negatives:   0
+2026-04-19 07:40:26 | 
 Classification report:
-2026-04-19 06:37:09 | 
+2026-04-19 07:40:26 | 
               precision    recall  f1-score   support
 
       Vsetky       0.93      1.00      0.96       112
@@ -45,5 +45,5 @@ Classification report:
    macro avg       0.96      0.96      0.96       224
 weighted avg       0.96      0.96      0.96       224
 
-2026-04-19 06:37:09 | Focal model successfully trained and saved to results/chory/efficientnet_focal_chory.pth
-2026-04-19 06:37:09 | Log saved to: results/chory/efficientnet_focal_chory.log
+2026-04-19 07:40:26 | Focal model successfully trained and saved to results/chory/efficientnet_focal_chory.pth
+2026-04-19 07:40:26 | Log saved to: results/chory/efficientnet_focal_chory.log

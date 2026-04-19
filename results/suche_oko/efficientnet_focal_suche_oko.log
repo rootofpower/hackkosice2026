@@ -1,36 +1,43 @@
-2026-04-19 04:35:27 | Starting EfficientNet Focal Retraining for pair: suche_oko
-2026-04-19 04:35:28 | Loading finetuned checkpoint from results/suche_oko/efficientnet_finetuned_suche_oko.pth...
-2026-04-19 04:35:28 | Focal retrain trainable params: 3,158,302
-2026-04-19 04:35:29 | Epoch 01/20 | train_loss=0.0631 | val_loss=0.0084 | val_f1_macro=1.0000 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:35:30 | Epoch 02/20 | train_loss=0.0463 | val_loss=0.0073 | val_f1_macro=1.0000 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:35:31 | Epoch 03/20 | train_loss=0.0134 | val_loss=0.0079 | val_f1_macro=1.0000 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:35:32 | Epoch 04/20 | train_loss=0.0143 | val_loss=0.0069 | val_f1_macro=1.0000 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:35:33 | Epoch 05/20 | train_loss=0.0070 | val_loss=0.0060 | val_f1_macro=1.0000 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:35:33 | Epoch 06/20 | train_loss=0.0261 | val_loss=0.0060 | val_f1_macro=1.0000 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:35:34 | Epoch 07/20 | train_loss=0.0144 | val_loss=0.0056 | val_f1_macro=1.0000 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:35:35 | Epoch 08/20 | train_loss=0.0144 | val_loss=0.0055 | val_f1_macro=1.0000 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:35:36 | Epoch 09/20 | train_loss=0.0491 | val_loss=0.0059 | val_f1_macro=1.0000 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:35:36 | Early stopping at epoch 9 — best F1: 1.0000
-2026-04-19 04:35:36 | Loading best focal model for final evaluation on test set...
-2026-04-19 04:35:36 | =================================================================
-2026-04-19 04:35:36 | FOCAL RETRAINING EVALUATION
-2026-04-19 04:35:36 | =================================================================
-2026-04-19 04:35:36 | ROC-AUC:           1.0000
-2026-04-19 04:35:36 | F1-macro:          1.0000
-2026-04-19 04:35:36 | Disease recall:    1.0000
-2026-04-19 04:35:36 | Disease precision: 1.0000
-2026-04-19 04:35:36 | False negatives:   0
-2026-04-19 04:35:36 | 
+2026-04-19 07:56:34 | Starting EfficientNet Focal Retraining for pair: suche_oko
+2026-04-19 07:56:34 | Label: Suche Oko
+2026-04-19 07:56:34 |   disease_train: 74 images → dataset/suche_oko/learning/super_proccesed
+2026-04-19 07:56:34 |   disease_test: 22 images → dataset/suche_oko/test/super_proccesed
+2026-04-19 07:56:34 |   healthy_train: 74 images → dataset/suche_oko/learning/96_zdrave_ludi/96_ludi
+2026-04-19 07:56:34 |   healthy_test: 22 images → dataset/suche_oko/test/96_zdrave_ludi/96_ludi
+2026-04-19 07:56:34 | Train — disease: 74, healthy: 74, total: 148
+2026-04-19 07:56:34 | Test — disease: 22, healthy: 22, total: 44
+2026-04-19 07:56:34 | Loading finetuned checkpoint from results/suche_oko/efficientnet_finetuned_suche_oko.pth...
+2026-04-19 07:56:35 | Focal retrain trainable params: 3,158,302
+2026-04-19 07:56:36 | Epoch 01/20 | train_loss=0.0198 | val_loss=0.0090 | val_f1_macro=1.0000 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:56:37 | Epoch 02/20 | train_loss=0.0406 | val_loss=0.0054 | val_f1_macro=1.0000 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:56:38 | Epoch 03/20 | train_loss=0.0232 | val_loss=0.0044 | val_f1_macro=1.0000 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:56:38 | Epoch 04/20 | train_loss=0.0135 | val_loss=0.0083 | val_f1_macro=1.0000 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:56:39 | Epoch 05/20 | train_loss=0.0184 | val_loss=0.0080 | val_f1_macro=1.0000 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:56:40 | Epoch 06/20 | train_loss=0.0221 | val_loss=0.0061 | val_f1_macro=1.0000 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:56:41 | Epoch 07/20 | train_loss=0.0431 | val_loss=0.0076 | val_f1_macro=1.0000 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:56:43 | Epoch 08/20 | train_loss=0.0525 | val_loss=0.0130 | val_f1_macro=1.0000 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:56:44 | Epoch 09/20 | train_loss=0.0235 | val_loss=0.0099 | val_f1_macro=1.0000 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:56:44 | Early stopping at epoch 9 — best F1: 1.0000
+2026-04-19 07:56:44 | Loading best focal model for final evaluation on test set...
+2026-04-19 07:56:44 | =================================================================
+2026-04-19 07:56:44 | FOCAL RETRAINING EVALUATION
+2026-04-19 07:56:44 | =================================================================
+2026-04-19 07:56:44 | ROC-AUC:           1.0000
+2026-04-19 07:56:44 | F1-macro:          1.0000
+2026-04-19 07:56:44 | Disease recall:    1.0000
+2026-04-19 07:56:44 | Disease precision: 1.0000
+2026-04-19 07:56:44 | False negatives:   0
+2026-04-19 07:56:44 | 
 Classification report:
-2026-04-19 04:35:36 | 
-                 precision    recall  f1-score   support
+2026-04-19 07:56:44 | 
+              precision    recall  f1-score   support
 
-super_proccesed       1.00      1.00      1.00        20
- 96_zdrave_ludi       1.00      1.00      1.00        19
+       Suche       1.00      1.00      1.00        22
+      Zdravi       1.00      1.00      1.00        22
 
-       accuracy                           1.00        39
-      macro avg       1.00      1.00      1.00        39
-   weighted avg       1.00      1.00      1.00        39
+    accuracy                           1.00        44
+   macro avg       1.00      1.00      1.00        44
+weighted avg       1.00      1.00      1.00        44
 
-2026-04-19 04:35:36 | Focal model successfully trained and saved to results/suche_oko/efficientnet_focal_suche_oko.pth
-2026-04-19 04:35:36 | Log saved to: results/suche_oko/efficientnet_focal_suche_oko.log
+2026-04-19 07:56:44 | Focal model successfully trained and saved to results/suche_oko/efficientnet_focal_suche_oko.pth
+2026-04-19 07:56:44 | Log saved to: results/suche_oko/efficientnet_focal_suche_oko.log

@@ -1,37 +1,44 @@
-2026-04-19 04:35:15 | Starting EfficientNet Fine-Tuning for pair: suche_oko
-2026-04-19 04:35:15 | Loading warm-up checkpoint from results/suche_oko/efficientnet_frozen_suche_oko.pth...
-2026-04-19 04:35:15 | Fine-tune trainable params: 3,158,302
-2026-04-19 04:35:16 | FT Epoch 01/40 | train_loss=0.1367 | val_loss=0.1327 | val_f1_macro=1.0000 | backbone_lr=1.00e-05 | head_lr=1.00e-04
-2026-04-19 04:35:17 | FT Epoch 02/40 | train_loss=0.0945 | val_loss=0.1271 | val_f1_macro=1.0000 | backbone_lr=9.98e-06 | head_lr=9.98e-05
-2026-04-19 04:35:18 | FT Epoch 03/40 | train_loss=0.1216 | val_loss=0.1109 | val_f1_macro=1.0000 | backbone_lr=9.94e-06 | head_lr=9.94e-05
-2026-04-19 04:35:19 | FT Epoch 04/40 | train_loss=0.1078 | val_loss=0.1106 | val_f1_macro=1.0000 | backbone_lr=9.86e-06 | head_lr=9.86e-05
-2026-04-19 04:35:20 | FT Epoch 05/40 | train_loss=0.0860 | val_loss=0.1092 | val_f1_macro=1.0000 | backbone_lr=9.76e-06 | head_lr=9.76e-05
-2026-04-19 04:35:20 | FT Epoch 06/40 | train_loss=0.1090 | val_loss=0.1048 | val_f1_macro=1.0000 | backbone_lr=9.62e-06 | head_lr=9.62e-05
-2026-04-19 04:35:21 | FT Epoch 07/40 | train_loss=0.1156 | val_loss=0.0949 | val_f1_macro=1.0000 | backbone_lr=9.46e-06 | head_lr=9.46e-05
-2026-04-19 04:35:22 | FT Epoch 08/40 | train_loss=0.1207 | val_loss=0.0929 | val_f1_macro=1.0000 | backbone_lr=9.26e-06 | head_lr=9.26e-05
-2026-04-19 04:35:23 | FT Epoch 09/40 | train_loss=0.1446 | val_loss=0.0925 | val_f1_macro=1.0000 | backbone_lr=9.05e-06 | head_lr=9.05e-05
-2026-04-19 04:35:24 | FT Epoch 10/40 | train_loss=0.0693 | val_loss=0.0888 | val_f1_macro=1.0000 | backbone_lr=8.80e-06 | head_lr=8.80e-05
-2026-04-19 04:35:24 | FT Epoch 11/40 | train_loss=0.1316 | val_loss=0.0823 | val_f1_macro=1.0000 | backbone_lr=8.54e-06 | head_lr=8.54e-05
-2026-04-19 04:35:24 | Early stopping at FT epoch 11 — best F1: 1.0000
-2026-04-19 04:35:24 | Loading best fine-tuned model for final evaluation on test set...
-2026-04-19 04:35:25 | =================================================================
-2026-04-19 04:35:25 | FINE-TUNING EVALUATION
-2026-04-19 04:35:25 | =================================================================
-2026-04-19 04:35:25 | ROC-AUC:           1.0000
-2026-04-19 04:35:25 | F1-macro:          1.0000
-2026-04-19 04:35:25 | Disease recall:    1.0000
-2026-04-19 04:35:25 | Disease precision: 1.0000
-2026-04-19 04:35:25 | False negatives:   0
-2026-04-19 04:35:25 | 
+2026-04-19 07:56:22 | Starting EfficientNet Fine-Tuning for pair: suche_oko
+2026-04-19 07:56:22 | Label: Suche Oko
+2026-04-19 07:56:22 |   disease_train: 74 images → dataset/suche_oko/learning/super_proccesed
+2026-04-19 07:56:22 |   disease_test: 22 images → dataset/suche_oko/test/super_proccesed
+2026-04-19 07:56:22 |   healthy_train: 74 images → dataset/suche_oko/learning/96_zdrave_ludi/96_ludi
+2026-04-19 07:56:22 |   healthy_test: 22 images → dataset/suche_oko/test/96_zdrave_ludi/96_ludi
+2026-04-19 07:56:22 | Train — disease: 74, healthy: 74, total: 148
+2026-04-19 07:56:22 | Test — disease: 22, healthy: 22, total: 44
+2026-04-19 07:56:22 | Loading warm-up checkpoint from results/suche_oko/efficientnet_frozen_suche_oko.pth...
+2026-04-19 07:56:22 | Fine-tune trainable params: 3,158,302
+2026-04-19 07:56:23 | FT Epoch 01/40 | train_loss=0.1304 | val_loss=0.1666 | val_f1_macro=1.0000 | backbone_lr=1.00e-05 | head_lr=1.00e-04
+2026-04-19 07:56:24 | FT Epoch 02/40 | train_loss=0.1465 | val_loss=0.1425 | val_f1_macro=1.0000 | backbone_lr=9.98e-06 | head_lr=9.98e-05
+2026-04-19 07:56:25 | FT Epoch 03/40 | train_loss=0.1189 | val_loss=0.1330 | val_f1_macro=1.0000 | backbone_lr=9.94e-06 | head_lr=9.94e-05
+2026-04-19 07:56:26 | FT Epoch 04/40 | train_loss=0.1030 | val_loss=0.1562 | val_f1_macro=1.0000 | backbone_lr=9.86e-06 | head_lr=9.86e-05
+2026-04-19 07:56:27 | FT Epoch 05/40 | train_loss=0.1055 | val_loss=0.1483 | val_f1_macro=1.0000 | backbone_lr=9.76e-06 | head_lr=9.76e-05
+2026-04-19 07:56:27 | FT Epoch 06/40 | train_loss=0.1098 | val_loss=0.1298 | val_f1_macro=1.0000 | backbone_lr=9.62e-06 | head_lr=9.62e-05
+2026-04-19 07:56:28 | FT Epoch 07/40 | train_loss=0.1377 | val_loss=0.1381 | val_f1_macro=1.0000 | backbone_lr=9.46e-06 | head_lr=9.46e-05
+2026-04-19 07:56:29 | FT Epoch 08/40 | train_loss=0.1557 | val_loss=0.1612 | val_f1_macro=1.0000 | backbone_lr=9.26e-06 | head_lr=9.26e-05
+2026-04-19 07:56:30 | FT Epoch 09/40 | train_loss=0.1166 | val_loss=0.1389 | val_f1_macro=1.0000 | backbone_lr=9.05e-06 | head_lr=9.05e-05
+2026-04-19 07:56:31 | FT Epoch 10/40 | train_loss=0.0965 | val_loss=0.1268 | val_f1_macro=1.0000 | backbone_lr=8.80e-06 | head_lr=8.80e-05
+2026-04-19 07:56:31 | FT Epoch 11/40 | train_loss=0.1202 | val_loss=0.1257 | val_f1_macro=1.0000 | backbone_lr=8.54e-06 | head_lr=8.54e-05
+2026-04-19 07:56:31 | Early stopping at FT epoch 11 — best F1: 1.0000
+2026-04-19 07:56:31 | Loading best fine-tuned model for final evaluation on test set...
+2026-04-19 07:56:32 | =================================================================
+2026-04-19 07:56:32 | FINE-TUNING EVALUATION
+2026-04-19 07:56:32 | =================================================================
+2026-04-19 07:56:32 | ROC-AUC:           1.0000
+2026-04-19 07:56:32 | F1-macro:          1.0000
+2026-04-19 07:56:32 | Disease recall:    1.0000
+2026-04-19 07:56:32 | Disease precision: 1.0000
+2026-04-19 07:56:32 | False negatives:   0
+2026-04-19 07:56:32 | 
 Classification report:
-2026-04-19 04:35:25 | 
-                 precision    recall  f1-score   support
+2026-04-19 07:56:32 | 
+              precision    recall  f1-score   support
 
-super_proccesed       1.00      1.00      1.00        20
- 96_zdrave_ludi       1.00      1.00      1.00        19
+       Suche       1.00      1.00      1.00        22
+      Zdravi       1.00      1.00      1.00        22
 
-       accuracy                           1.00        39
-      macro avg       1.00      1.00      1.00        39
-   weighted avg       1.00      1.00      1.00        39
+    accuracy                           1.00        44
+   macro avg       1.00      1.00      1.00        44
+weighted avg       1.00      1.00      1.00        44
 
-2026-04-19 04:35:25 | Log saved to: results/suche_oko/training_finetune_suche_oko.log
+2026-04-19 07:56:32 | Log saved to: results/suche_oko/training_finetune_suche_oko.log

@@ -1,56 +1,45 @@
-2026-04-19 04:30:16 | Starting EfficientNet Fine-Tuning for pair: skleroza
-2026-04-19 04:30:16 | Loading warm-up checkpoint from results/skleroza/efficientnet_frozen_skleroza.pth...
-2026-04-19 04:30:16 | Fine-tune trainable params: 3,158,302
-2026-04-19 04:30:20 | FT Epoch 01/40 | train_loss=0.1660 | val_loss=0.1214 | val_f1_macro=0.9638 | backbone_lr=1.00e-05 | head_lr=1.00e-04
-2026-04-19 04:30:23 | FT Epoch 02/40 | train_loss=0.1637 | val_loss=0.1004 | val_f1_macro=0.9729 | backbone_lr=9.98e-06 | head_lr=9.98e-05
-2026-04-19 04:30:26 | FT Epoch 03/40 | train_loss=0.1255 | val_loss=0.0863 | val_f1_macro=0.9683 | backbone_lr=9.94e-06 | head_lr=9.94e-05
-2026-04-19 04:30:29 | FT Epoch 04/40 | train_loss=0.1123 | val_loss=0.0816 | val_f1_macro=0.9729 | backbone_lr=9.86e-06 | head_lr=9.86e-05
-2026-04-19 04:30:32 | FT Epoch 05/40 | train_loss=0.1280 | val_loss=0.0799 | val_f1_macro=0.9819 | backbone_lr=9.76e-06 | head_lr=9.76e-05
-2026-04-19 04:30:35 | FT Epoch 06/40 | train_loss=0.1259 | val_loss=0.0759 | val_f1_macro=0.9819 | backbone_lr=9.62e-06 | head_lr=9.62e-05
-2026-04-19 04:30:38 | FT Epoch 07/40 | train_loss=0.0968 | val_loss=0.0684 | val_f1_macro=0.9819 | backbone_lr=9.46e-06 | head_lr=9.46e-05
-2026-04-19 04:30:40 | FT Epoch 08/40 | train_loss=0.1063 | val_loss=0.0662 | val_f1_macro=0.9864 | backbone_lr=9.26e-06 | head_lr=9.26e-05
-2026-04-19 04:30:43 | FT Epoch 09/40 | train_loss=0.1099 | val_loss=0.0635 | val_f1_macro=0.9864 | backbone_lr=9.05e-06 | head_lr=9.05e-05
-2026-04-19 04:30:46 | FT Epoch 10/40 | train_loss=0.1033 | val_loss=0.0663 | val_f1_macro=0.9819 | backbone_lr=8.80e-06 | head_lr=8.80e-05
-2026-04-19 04:30:49 | FT Epoch 11/40 | train_loss=0.1136 | val_loss=0.0649 | val_f1_macro=0.9774 | backbone_lr=8.54e-06 | head_lr=8.54e-05
-2026-04-19 04:30:52 | FT Epoch 12/40 | train_loss=0.0923 | val_loss=0.0703 | val_f1_macro=0.9728 | backbone_lr=8.25e-06 | head_lr=8.25e-05
-2026-04-19 04:30:55 | FT Epoch 13/40 | train_loss=0.1062 | val_loss=0.0808 | val_f1_macro=0.9683 | backbone_lr=7.94e-06 | head_lr=7.94e-05
-2026-04-19 04:30:58 | FT Epoch 14/40 | train_loss=0.0878 | val_loss=0.0605 | val_f1_macro=0.9864 | backbone_lr=7.61e-06 | head_lr=7.61e-05
-2026-04-19 04:31:01 | FT Epoch 15/40 | train_loss=0.0863 | val_loss=0.0684 | val_f1_macro=0.9728 | backbone_lr=7.27e-06 | head_lr=7.27e-05
-2026-04-19 04:31:04 | FT Epoch 16/40 | train_loss=0.0774 | val_loss=0.0574 | val_f1_macro=0.9864 | backbone_lr=6.91e-06 | head_lr=6.91e-05
-2026-04-19 04:31:07 | FT Epoch 17/40 | train_loss=0.0956 | val_loss=0.0514 | val_f1_macro=0.9864 | backbone_lr=6.55e-06 | head_lr=6.55e-05
-2026-04-19 04:31:10 | FT Epoch 18/40 | train_loss=0.0850 | val_loss=0.0490 | val_f1_macro=0.9864 | backbone_lr=6.17e-06 | head_lr=6.17e-05
-2026-04-19 04:31:13 | FT Epoch 19/40 | train_loss=0.0731 | val_loss=0.0460 | val_f1_macro=0.9910 | backbone_lr=5.78e-06 | head_lr=5.78e-05
-2026-04-19 04:31:16 | FT Epoch 20/40 | train_loss=0.0847 | val_loss=0.0537 | val_f1_macro=0.9955 | backbone_lr=5.39e-06 | head_lr=5.39e-05
-2026-04-19 04:31:19 | FT Epoch 21/40 | train_loss=0.0945 | val_loss=0.0549 | val_f1_macro=0.9819 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:31:22 | FT Epoch 22/40 | train_loss=0.1216 | val_loss=0.0493 | val_f1_macro=0.9910 | backbone_lr=4.61e-06 | head_lr=4.61e-05
-2026-04-19 04:31:25 | FT Epoch 23/40 | train_loss=0.1088 | val_loss=0.0651 | val_f1_macro=0.9774 | backbone_lr=4.22e-06 | head_lr=4.22e-05
-2026-04-19 04:31:28 | FT Epoch 24/40 | train_loss=0.0723 | val_loss=0.0473 | val_f1_macro=0.9910 | backbone_lr=3.83e-06 | head_lr=3.83e-05
-2026-04-19 04:31:30 | FT Epoch 25/40 | train_loss=0.0815 | val_loss=0.0455 | val_f1_macro=0.9955 | backbone_lr=3.45e-06 | head_lr=3.45e-05
-2026-04-19 04:31:33 | FT Epoch 26/40 | train_loss=0.0740 | val_loss=0.0539 | val_f1_macro=0.9864 | backbone_lr=3.09e-06 | head_lr=3.09e-05
-2026-04-19 04:31:36 | FT Epoch 27/40 | train_loss=0.0774 | val_loss=0.0441 | val_f1_macro=0.9910 | backbone_lr=2.73e-06 | head_lr=2.73e-05
-2026-04-19 04:31:39 | FT Epoch 28/40 | train_loss=0.0785 | val_loss=0.0381 | val_f1_macro=0.9864 | backbone_lr=2.39e-06 | head_lr=2.39e-05
-2026-04-19 04:31:42 | FT Epoch 29/40 | train_loss=0.0575 | val_loss=0.0476 | val_f1_macro=0.9864 | backbone_lr=2.06e-06 | head_lr=2.06e-05
-2026-04-19 04:31:45 | FT Epoch 30/40 | train_loss=0.0700 | val_loss=0.0516 | val_f1_macro=0.9864 | backbone_lr=1.75e-06 | head_lr=1.75e-05
-2026-04-19 04:31:45 | Early stopping at FT epoch 30 — best F1: 0.9955
-2026-04-19 04:31:45 | Loading best fine-tuned model for final evaluation on test set...
-2026-04-19 04:31:46 | =================================================================
-2026-04-19 04:31:46 | FINE-TUNING EVALUATION
-2026-04-19 04:31:46 | =================================================================
-2026-04-19 04:31:46 | ROC-AUC:           0.9991
-2026-04-19 04:31:46 | F1-macro:          0.9955
-2026-04-19 04:31:46 | Disease recall:    0.9910
-2026-04-19 04:31:46 | Disease precision: 1.0000
-2026-04-19 04:31:46 | False negatives:   1
-2026-04-19 04:31:46 | 
+2026-04-19 07:52:13 | Starting EfficientNet Fine-Tuning for pair: skleroza
+2026-04-19 07:52:13 | Label: Skleroza Multiplex
+2026-04-19 07:52:13 |   disease_train: 440 images → dataset/skleroza/learning/skleroza
+2026-04-19 07:52:13 |   disease_test: 112 images → dataset/skleroza/test/skleroza
+2026-04-19 07:52:13 |   healthy_train: 440 images → dataset/skleroza/learning/zdravi_ludi
+2026-04-19 07:52:13 |   healthy_test: 112 images → dataset/skleroza/test/zdravi_ludi
+2026-04-19 07:52:13 | Train — disease: 440, healthy: 440, total: 880
+2026-04-19 07:52:13 | Test — disease: 112, healthy: 112, total: 224
+2026-04-19 07:52:14 | Loading warm-up checkpoint from results/skleroza/efficientnet_frozen_skleroza.pth...
+2026-04-19 07:52:14 | Fine-tune trainable params: 3,158,302
+2026-04-19 07:52:18 | FT Epoch 01/40 | train_loss=0.1096 | val_loss=0.1290 | val_f1_macro=0.9463 | backbone_lr=1.00e-05 | head_lr=1.00e-04
+2026-04-19 07:52:21 | FT Epoch 02/40 | train_loss=0.1217 | val_loss=0.1182 | val_f1_macro=0.9553 | backbone_lr=9.98e-06 | head_lr=9.98e-05
+2026-04-19 07:52:24 | FT Epoch 03/40 | train_loss=0.1027 | val_loss=0.1340 | val_f1_macro=0.9418 | backbone_lr=9.94e-06 | head_lr=9.94e-05
+2026-04-19 07:52:27 | FT Epoch 04/40 | train_loss=0.0927 | val_loss=0.1321 | val_f1_macro=0.9373 | backbone_lr=9.86e-06 | head_lr=9.86e-05
+2026-04-19 07:52:30 | FT Epoch 05/40 | train_loss=0.1086 | val_loss=0.1526 | val_f1_macro=0.9327 | backbone_lr=9.76e-06 | head_lr=9.76e-05
+2026-04-19 07:52:33 | FT Epoch 06/40 | train_loss=0.1002 | val_loss=0.1380 | val_f1_macro=0.9327 | backbone_lr=9.62e-06 | head_lr=9.62e-05
+2026-04-19 07:52:35 | FT Epoch 07/40 | train_loss=0.0817 | val_loss=0.1271 | val_f1_macro=0.9418 | backbone_lr=9.46e-06 | head_lr=9.46e-05
+2026-04-19 07:52:38 | FT Epoch 08/40 | train_loss=0.0793 | val_loss=0.1194 | val_f1_macro=0.9463 | backbone_lr=9.26e-06 | head_lr=9.26e-05
+2026-04-19 07:52:41 | FT Epoch 09/40 | train_loss=0.0925 | val_loss=0.1226 | val_f1_macro=0.9418 | backbone_lr=9.05e-06 | head_lr=9.05e-05
+2026-04-19 07:52:44 | FT Epoch 10/40 | train_loss=0.1151 | val_loss=0.1200 | val_f1_macro=0.9418 | backbone_lr=8.80e-06 | head_lr=8.80e-05
+2026-04-19 07:52:47 | FT Epoch 11/40 | train_loss=0.0979 | val_loss=0.1278 | val_f1_macro=0.9418 | backbone_lr=8.54e-06 | head_lr=8.54e-05
+2026-04-19 07:52:51 | FT Epoch 12/40 | train_loss=0.0888 | val_loss=0.1304 | val_f1_macro=0.9418 | backbone_lr=8.25e-06 | head_lr=8.25e-05
+2026-04-19 07:52:51 | Early stopping at FT epoch 12 — best F1: 0.9553
+2026-04-19 07:52:51 | Loading best fine-tuned model for final evaluation on test set...
+2026-04-19 07:52:52 | =================================================================
+2026-04-19 07:52:52 | FINE-TUNING EVALUATION
+2026-04-19 07:52:52 | =================================================================
+2026-04-19 07:52:52 | ROC-AUC:           0.9958
+2026-04-19 07:52:52 | F1-macro:          0.9553
+2026-04-19 07:52:52 | Disease recall:    0.9196
+2026-04-19 07:52:52 | Disease precision: 0.9904
+2026-04-19 07:52:52 | False negatives:   9
+2026-04-19 07:52:52 | 
 Classification report:
-2026-04-19 04:31:46 | 
+2026-04-19 07:52:52 | 
               precision    recall  f1-score   support
 
-    skleroza       1.00      0.99      1.00       111
- zdravi_ludi       0.99      1.00      1.00       110
+    Skleroza       0.99      0.92      0.95       112
+      Zdravi       0.93      0.99      0.96       112
 
-    accuracy                           1.00       221
-   macro avg       1.00      1.00      1.00       221
-weighted avg       1.00      1.00      1.00       221
+    accuracy                           0.96       224
+   macro avg       0.96      0.96      0.96       224
+weighted avg       0.96      0.96      0.96       224
 
-2026-04-19 04:31:46 | Log saved to: results/skleroza/training_finetune_skleroza.log
+2026-04-19 07:52:52 | Log saved to: results/skleroza/training_finetune_skleroza.log

@@ -1,38 +1,44 @@
-2026-04-19 04:21:24 | Starting EfficientNet Focal Retraining for pair: diabetes
-2026-04-19 04:21:25 | Loading finetuned checkpoint from results/diabetes/efficientnet_finetuned_diabetes.pth...
-2026-04-19 04:21:25 | Focal retrain trainable params: 3,158,302
-2026-04-19 04:21:28 | Epoch 01/20 | train_loss=0.0943 | val_loss=0.0694 | val_f1_macro=0.9190 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:21:30 | Epoch 02/20 | train_loss=0.0892 | val_loss=0.0977 | val_f1_macro=0.9189 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:21:32 | Epoch 03/20 | train_loss=0.0912 | val_loss=0.0687 | val_f1_macro=0.9191 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:21:35 | Epoch 04/20 | train_loss=0.0844 | val_loss=0.0741 | val_f1_macro=0.9189 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:21:37 | Epoch 05/20 | train_loss=0.0689 | val_loss=0.0695 | val_f1_macro=0.9190 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:21:39 | Epoch 06/20 | train_loss=0.0630 | val_loss=0.0659 | val_f1_macro=0.9132 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:21:42 | Epoch 07/20 | train_loss=0.0804 | val_loss=0.0846 | val_f1_macro=0.9130 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:21:44 | Epoch 08/20 | train_loss=0.0941 | val_loss=0.0755 | val_f1_macro=0.8900 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:21:47 | Epoch 09/20 | train_loss=0.0767 | val_loss=0.0732 | val_f1_macro=0.9074 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:21:49 | Epoch 10/20 | train_loss=0.0660 | val_loss=0.0716 | val_f1_macro=0.9131 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:21:51 | Epoch 11/20 | train_loss=0.0910 | val_loss=0.0507 | val_f1_macro=0.9191 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:21:51 | Early stopping at epoch 11 — best F1: 0.9191
-2026-04-19 04:21:51 | Loading best focal model for final evaluation on test set...
-2026-04-19 04:21:52 | =================================================================
-2026-04-19 04:21:52 | FOCAL RETRAINING EVALUATION
-2026-04-19 04:21:52 | =================================================================
-2026-04-19 04:21:52 | ROC-AUC:           0.9661
-2026-04-19 04:21:52 | F1-macro:          0.9191
-2026-04-19 04:21:52 | Disease recall:    0.8966
-2026-04-19 04:21:52 | Disease precision: 0.9398
-2026-04-19 04:21:52 | False negatives:   9
-2026-04-19 04:21:52 | 
+2026-04-19 07:44:19 | Starting EfficientNet Focal Retraining for pair: diabetes
+2026-04-19 07:44:19 | Label: Diabetes + Suche Oko
+2026-04-19 07:44:19 |   disease_train: 352 images → dataset/diabetes/learning/diabetes
+2026-04-19 07:44:19 |   disease_test: 80 images → dataset/diabetes/test/diabetes
+2026-04-19 07:44:19 |   healthy_train: 352 images → dataset/diabetes/learning/zdravi_ludi/super_proccesed
+2026-04-19 07:44:19 |   healthy_test: 80 images → dataset/diabetes/test/zdravi_ludi/super_proccesed
+2026-04-19 07:44:19 | Train — disease: 352, healthy: 352, total: 704
+2026-04-19 07:44:19 | Test — disease: 80, healthy: 80, total: 160
+2026-04-19 07:44:19 | Loading finetuned checkpoint from results/diabetes/efficientnet_finetuned_diabetes.pth...
+2026-04-19 07:44:19 | Focal retrain trainable params: 3,158,302
+2026-04-19 07:44:22 | Epoch 01/20 | train_loss=0.0865 | val_loss=0.1292 | val_f1_macro=0.8747 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:44:25 | Epoch 02/20 | train_loss=0.0666 | val_loss=0.1240 | val_f1_macro=0.8749 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:44:27 | Epoch 03/20 | train_loss=0.0727 | val_loss=0.1270 | val_f1_macro=0.8683 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:44:30 | Epoch 04/20 | train_loss=0.0953 | val_loss=0.1153 | val_f1_macro=0.8560 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:44:33 | Epoch 05/20 | train_loss=0.0939 | val_loss=0.1156 | val_f1_macro=0.8435 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:44:35 | Epoch 06/20 | train_loss=0.1022 | val_loss=0.1343 | val_f1_macro=0.8415 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:44:37 | Epoch 07/20 | train_loss=0.0927 | val_loss=0.1300 | val_f1_macro=0.8293 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:44:40 | Epoch 08/20 | train_loss=0.0938 | val_loss=0.1255 | val_f1_macro=0.8228 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:44:42 | Epoch 09/20 | train_loss=0.0891 | val_loss=0.1283 | val_f1_macro=0.8216 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:44:44 | Epoch 10/20 | train_loss=0.0815 | val_loss=0.1329 | val_f1_macro=0.8222 | backbone_lr=5.00e-06 | head_lr=5.00e-05
+2026-04-19 07:44:44 | Early stopping at epoch 10 — best F1: 0.8749
+2026-04-19 07:44:44 | Loading best focal model for final evaluation on test set...
+2026-04-19 07:44:45 | =================================================================
+2026-04-19 07:44:45 | FOCAL RETRAINING EVALUATION
+2026-04-19 07:44:45 | =================================================================
+2026-04-19 07:44:45 | ROC-AUC:           0.9202
+2026-04-19 07:44:45 | F1-macro:          0.8749
+2026-04-19 07:44:45 | Disease recall:    0.9000
+2026-04-19 07:44:45 | Disease precision: 0.8571
+2026-04-19 07:44:45 | False negatives:   8
+2026-04-19 07:44:45 | 
 Classification report:
-2026-04-19 04:21:52 | 
+2026-04-19 07:44:45 | 
               precision    recall  f1-score   support
 
-    diabetes       0.94      0.90      0.92        87
- zdravi_ludi       0.90      0.94      0.92        86
+    Diabetes       0.86      0.90      0.88        80
+      Zdravi       0.89      0.85      0.87        80
 
-    accuracy                           0.92       173
-   macro avg       0.92      0.92      0.92       173
-weighted avg       0.92      0.92      0.92       173
+    accuracy                           0.88       160
+   macro avg       0.88      0.88      0.87       160
+weighted avg       0.88      0.88      0.87       160
 
-2026-04-19 04:21:52 | Focal model successfully trained and saved to results/diabetes/efficientnet_focal_diabetes.pth
-2026-04-19 04:21:52 | Log saved to: results/diabetes/efficientnet_focal_diabetes.log
+2026-04-19 07:44:45 | Focal model successfully trained and saved to results/diabetes/efficientnet_focal_diabetes.pth
+2026-04-19 07:44:45 | Log saved to: results/diabetes/efficientnet_focal_diabetes.log

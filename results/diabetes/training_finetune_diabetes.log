@@ -1,51 +1,46 @@
-2026-04-19 04:20:20 | Starting EfficientNet Fine-Tuning for pair: diabetes
-2026-04-19 04:20:20 | Loading warm-up checkpoint from results/diabetes/efficientnet_frozen_diabetes.pth...
-2026-04-19 04:20:21 | Fine-tune trainable params: 3,158,302
-2026-04-19 04:20:24 | FT Epoch 01/40 | train_loss=0.3443 | val_loss=0.3167 | val_f1_macro=0.8609 | backbone_lr=1.00e-05 | head_lr=1.00e-04
-2026-04-19 04:20:26 | FT Epoch 02/40 | train_loss=0.3450 | val_loss=0.3364 | val_f1_macro=0.8723 | backbone_lr=9.98e-06 | head_lr=9.98e-05
-2026-04-19 04:20:28 | FT Epoch 03/40 | train_loss=0.3406 | val_loss=0.3075 | val_f1_macro=0.8550 | backbone_lr=9.94e-06 | head_lr=9.94e-05
-2026-04-19 04:20:31 | FT Epoch 04/40 | train_loss=0.3270 | val_loss=0.2813 | val_f1_macro=0.8844 | backbone_lr=9.86e-06 | head_lr=9.86e-05
-2026-04-19 04:20:33 | FT Epoch 05/40 | train_loss=0.3368 | val_loss=0.3281 | val_f1_macro=0.8662 | backbone_lr=9.76e-06 | head_lr=9.76e-05
-2026-04-19 04:20:36 | FT Epoch 06/40 | train_loss=0.3221 | val_loss=0.2861 | val_f1_macro=0.8839 | backbone_lr=9.62e-06 | head_lr=9.62e-05
-2026-04-19 04:20:38 | FT Epoch 07/40 | train_loss=0.3080 | val_loss=0.2777 | val_f1_macro=0.9015 | backbone_lr=9.46e-06 | head_lr=9.46e-05
-2026-04-19 04:20:40 | FT Epoch 08/40 | train_loss=0.3077 | val_loss=0.2720 | val_f1_macro=0.8844 | backbone_lr=9.26e-06 | head_lr=9.26e-05
-2026-04-19 04:20:43 | FT Epoch 09/40 | train_loss=0.2993 | val_loss=0.2810 | val_f1_macro=0.8955 | backbone_lr=9.05e-06 | head_lr=9.05e-05
-2026-04-19 04:20:45 | FT Epoch 10/40 | train_loss=0.3085 | val_loss=0.2571 | val_f1_macro=0.9075 | backbone_lr=8.80e-06 | head_lr=8.80e-05
-2026-04-19 04:20:48 | FT Epoch 11/40 | train_loss=0.2928 | val_loss=0.2528 | val_f1_macro=0.8844 | backbone_lr=8.54e-06 | head_lr=8.54e-05
-2026-04-19 04:20:50 | FT Epoch 12/40 | train_loss=0.2818 | val_loss=0.2516 | val_f1_macro=0.9016 | backbone_lr=8.25e-06 | head_lr=8.25e-05
-2026-04-19 04:20:53 | FT Epoch 13/40 | train_loss=0.2622 | val_loss=0.2561 | val_f1_macro=0.9017 | backbone_lr=7.94e-06 | head_lr=7.94e-05
-2026-04-19 04:20:55 | FT Epoch 14/40 | train_loss=0.2736 | val_loss=0.2698 | val_f1_macro=0.9013 | backbone_lr=7.61e-06 | head_lr=7.61e-05
-2026-04-19 04:20:57 | FT Epoch 15/40 | train_loss=0.2693 | val_loss=0.2354 | val_f1_macro=0.9306 | backbone_lr=7.27e-06 | head_lr=7.27e-05
-2026-04-19 04:21:00 | FT Epoch 16/40 | train_loss=0.2660 | val_loss=0.2415 | val_f1_macro=0.9074 | backbone_lr=6.91e-06 | head_lr=6.91e-05
-2026-04-19 04:21:02 | FT Epoch 17/40 | train_loss=0.2799 | val_loss=0.2663 | val_f1_macro=0.9190 | backbone_lr=6.55e-06 | head_lr=6.55e-05
-2026-04-19 04:21:04 | FT Epoch 18/40 | train_loss=0.2532 | val_loss=0.2346 | val_f1_macro=0.9132 | backbone_lr=6.17e-06 | head_lr=6.17e-05
-2026-04-19 04:21:07 | FT Epoch 19/40 | train_loss=0.2449 | val_loss=0.2595 | val_f1_macro=0.9014 | backbone_lr=5.78e-06 | head_lr=5.78e-05
-2026-04-19 04:21:09 | FT Epoch 20/40 | train_loss=0.2611 | val_loss=0.2530 | val_f1_macro=0.9073 | backbone_lr=5.39e-06 | head_lr=5.39e-05
-2026-04-19 04:21:12 | FT Epoch 21/40 | train_loss=0.2569 | val_loss=0.2299 | val_f1_macro=0.9191 | backbone_lr=5.00e-06 | head_lr=5.00e-05
-2026-04-19 04:21:14 | FT Epoch 22/40 | train_loss=0.2585 | val_loss=0.2288 | val_f1_macro=0.9133 | backbone_lr=4.61e-06 | head_lr=4.61e-05
-2026-04-19 04:21:16 | FT Epoch 23/40 | train_loss=0.2264 | val_loss=0.2523 | val_f1_macro=0.9130 | backbone_lr=4.22e-06 | head_lr=4.22e-05
-2026-04-19 04:21:19 | FT Epoch 24/40 | train_loss=0.2686 | val_loss=0.2112 | val_f1_macro=0.9306 | backbone_lr=3.83e-06 | head_lr=3.83e-05
-2026-04-19 04:21:21 | FT Epoch 25/40 | train_loss=0.2159 | val_loss=0.2358 | val_f1_macro=0.9131 | backbone_lr=3.45e-06 | head_lr=3.45e-05
-2026-04-19 04:21:21 | Early stopping at FT epoch 25 — best F1: 0.9306
-2026-04-19 04:21:21 | Loading best fine-tuned model for final evaluation on test set...
-2026-04-19 04:21:22 | =================================================================
-2026-04-19 04:21:22 | FINE-TUNING EVALUATION
-2026-04-19 04:21:22 | =================================================================
-2026-04-19 04:21:22 | ROC-AUC:           0.9661
-2026-04-19 04:21:22 | F1-macro:          0.9306
-2026-04-19 04:21:22 | Disease recall:    0.8966
-2026-04-19 04:21:22 | Disease precision: 0.9630
-2026-04-19 04:21:22 | False negatives:   9
-2026-04-19 04:21:22 | 
+2026-04-19 07:43:44 | Starting EfficientNet Fine-Tuning for pair: diabetes
+2026-04-19 07:43:44 | Label: Diabetes + Suche Oko
+2026-04-19 07:43:44 |   disease_train: 352 images → dataset/diabetes/learning/diabetes
+2026-04-19 07:43:44 |   disease_test: 80 images → dataset/diabetes/test/diabetes
+2026-04-19 07:43:44 |   healthy_train: 352 images → dataset/diabetes/learning/zdravi_ludi/super_proccesed
+2026-04-19 07:43:44 |   healthy_test: 80 images → dataset/diabetes/test/zdravi_ludi/super_proccesed
+2026-04-19 07:43:44 | Train — disease: 352, healthy: 352, total: 704
+2026-04-19 07:43:44 | Test — disease: 80, healthy: 80, total: 160
+2026-04-19 07:43:45 | Loading warm-up checkpoint from results/diabetes/efficientnet_frozen_diabetes.pth...
+2026-04-19 07:43:45 | Fine-tune trainable params: 3,158,302
+2026-04-19 07:43:47 | FT Epoch 01/40 | train_loss=0.3721 | val_loss=0.3773 | val_f1_macro=0.8750 | backbone_lr=1.00e-05 | head_lr=1.00e-04
+2026-04-19 07:43:50 | FT Epoch 02/40 | train_loss=0.3346 | val_loss=0.3699 | val_f1_macro=0.8561 | backbone_lr=9.98e-06 | head_lr=9.98e-05
+2026-04-19 07:43:52 | FT Epoch 03/40 | train_loss=0.3361 | val_loss=0.3659 | val_f1_macro=0.8750 | backbone_lr=9.94e-06 | head_lr=9.94e-05
+2026-04-19 07:43:55 | FT Epoch 04/40 | train_loss=0.3431 | val_loss=0.3618 | val_f1_macro=0.8687 | backbone_lr=9.86e-06 | head_lr=9.86e-05
+2026-04-19 07:43:58 | FT Epoch 05/40 | train_loss=0.3401 | val_loss=0.3573 | val_f1_macro=0.8750 | backbone_lr=9.76e-06 | head_lr=9.76e-05
+2026-04-19 07:44:00 | FT Epoch 06/40 | train_loss=0.3548 | val_loss=0.3676 | val_f1_macro=0.8558 | backbone_lr=9.62e-06 | head_lr=9.62e-05
+2026-04-19 07:44:02 | FT Epoch 07/40 | train_loss=0.3287 | val_loss=0.3704 | val_f1_macro=0.8620 | backbone_lr=9.46e-06 | head_lr=9.46e-05
+2026-04-19 07:44:05 | FT Epoch 08/40 | train_loss=0.3219 | val_loss=0.3649 | val_f1_macro=0.8683 | backbone_lr=9.26e-06 | head_lr=9.26e-05
+2026-04-19 07:44:07 | FT Epoch 09/40 | train_loss=0.3129 | val_loss=0.3610 | val_f1_macro=0.8542 | backbone_lr=9.05e-06 | head_lr=9.05e-05
+2026-04-19 07:44:09 | FT Epoch 10/40 | train_loss=0.2988 | val_loss=0.3708 | val_f1_macro=0.8607 | backbone_lr=8.80e-06 | head_lr=8.80e-05
+2026-04-19 07:44:11 | FT Epoch 11/40 | train_loss=0.3203 | val_loss=0.3589 | val_f1_macro=0.8745 | backbone_lr=8.54e-06 | head_lr=8.54e-05
+2026-04-19 07:44:14 | FT Epoch 12/40 | train_loss=0.2948 | val_loss=0.3640 | val_f1_macro=0.8679 | backbone_lr=8.25e-06 | head_lr=8.25e-05
+2026-04-19 07:44:16 | FT Epoch 13/40 | train_loss=0.2772 | val_loss=0.3770 | val_f1_macro=0.8410 | backbone_lr=7.94e-06 | head_lr=7.94e-05
+2026-04-19 07:44:16 | Early stopping at FT epoch 13 — best F1: 0.8750
+2026-04-19 07:44:16 | Loading best fine-tuned model for final evaluation on test set...
+2026-04-19 07:44:16 | =================================================================
+2026-04-19 07:44:16 | FINE-TUNING EVALUATION
+2026-04-19 07:44:16 | =================================================================
+2026-04-19 07:44:16 | ROC-AUC:           0.9236
+2026-04-19 07:44:16 | F1-macro:          0.8750
+2026-04-19 07:44:16 | Disease recall:    0.8750
+2026-04-19 07:44:16 | Disease precision: 0.8750
+2026-04-19 07:44:16 | False negatives:   10
+2026-04-19 07:44:16 | 
 Classification report:
-2026-04-19 04:21:22 | 
+2026-04-19 07:44:16 | 
               precision    recall  f1-score   support
 
-    diabetes       0.96      0.90      0.93        87
- zdravi_ludi       0.90      0.97      0.93        86
+    Diabetes       0.88      0.88      0.88        80
+      Zdravi       0.88      0.88      0.88        80
 
-    accuracy                           0.93       173
-   macro avg       0.93      0.93      0.93       173
-weighted avg       0.93      0.93      0.93       173
+    accuracy                           0.88       160
+   macro avg       0.88      0.88      0.88       160
+weighted avg       0.88      0.88      0.88       160
 
-2026-04-19 04:21:22 | Log saved to: results/diabetes/training_finetune_diabetes.log
+2026-04-19 07:44:17 | Log saved to: results/diabetes/training_finetune_diabetes.log

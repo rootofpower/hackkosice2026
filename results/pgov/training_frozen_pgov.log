@@ -1,38 +1,28 @@
-2026-04-19 04:23:56 | Starting EfficientNet Frozen Training for pair: pgov
-2026-04-19 04:23:56 | Disease class: pgov
-2026-04-19 04:23:56 | Healthy class: zdravi_ludi
-2026-04-19 04:23:56 | Total images found: 1104
-2026-04-19 04:23:56 | Class 0 (pgov): 552
-2026-04-19 04:23:56 | Class 1 (zdravi_ludi): 552
-2026-04-19 04:23:56 | Training samples: 883
-2026-04-19 04:23:56 | Test samples: 221
-2026-04-19 04:23:56 | Device: cuda
-2026-04-19 04:23:56 | Trainable params: 2,562
-2026-04-19 04:23:59 | Epoch 01/60 | train_loss=0.3462 | val_loss=0.2100 | val_f1_macro=0.9638 | lr=1.00e-03
-2026-04-19 04:24:02 | Epoch 02/60 | train_loss=0.1771 | val_loss=0.1375 | val_f1_macro=0.9819 | lr=9.99e-04
-2026-04-19 04:24:05 | Epoch 03/60 | train_loss=0.1451 | val_loss=0.1238 | val_f1_macro=0.9683 | lr=9.97e-04
-2026-04-19 04:24:08 | Epoch 04/60 | train_loss=0.1327 | val_loss=0.0955 | val_f1_macro=0.9774 | lr=9.94e-04
-2026-04-19 04:24:11 | Epoch 05/60 | train_loss=0.1266 | val_loss=0.0819 | val_f1_macro=0.9864 | lr=9.89e-04
-2026-04-19 04:24:14 | Epoch 06/60 | train_loss=0.1107 | val_loss=0.0812 | val_f1_macro=0.9774 | lr=9.83e-04
-2026-04-19 04:24:16 | Epoch 07/60 | train_loss=0.0914 | val_loss=0.0872 | val_f1_macro=0.9728 | lr=9.76e-04
-2026-04-19 04:24:19 | Epoch 08/60 | train_loss=0.1009 | val_loss=0.0710 | val_f1_macro=0.9819 | lr=9.67e-04
-2026-04-19 04:24:22 | Epoch 09/60 | train_loss=0.1099 | val_loss=0.0681 | val_f1_macro=0.9819 | lr=9.57e-04
-2026-04-19 04:24:25 | Epoch 10/60 | train_loss=0.0953 | val_loss=0.0736 | val_f1_macro=0.9774 | lr=9.46e-04
-2026-04-19 04:24:28 | Epoch 11/60 | train_loss=0.0871 | val_loss=0.0577 | val_f1_macro=0.9864 | lr=9.33e-04
-2026-04-19 04:24:30 | Epoch 12/60 | train_loss=0.0959 | val_loss=0.0708 | val_f1_macro=0.9774 | lr=9.19e-04
-2026-04-19 04:24:33 | Epoch 13/60 | train_loss=0.0845 | val_loss=0.0623 | val_f1_macro=0.9819 | lr=9.05e-04
-2026-04-19 04:24:36 | Epoch 14/60 | train_loss=0.0785 | val_loss=0.0457 | val_f1_macro=0.9955 | lr=8.89e-04
-2026-04-19 04:24:39 | Epoch 15/60 | train_loss=0.0940 | val_loss=0.0511 | val_f1_macro=0.9909 | lr=8.72e-04
-2026-04-19 04:24:42 | Epoch 16/60 | train_loss=0.1162 | val_loss=0.0553 | val_f1_macro=0.9864 | lr=8.54e-04
-2026-04-19 04:24:44 | Epoch 17/60 | train_loss=0.1171 | val_loss=0.0534 | val_f1_macro=0.9909 | lr=8.35e-04
-2026-04-19 04:24:47 | Epoch 18/60 | train_loss=0.0842 | val_loss=0.0539 | val_f1_macro=0.9864 | lr=8.15e-04
-2026-04-19 04:24:50 | Epoch 19/60 | train_loss=0.0946 | val_loss=0.0530 | val_f1_macro=0.9774 | lr=7.94e-04
-2026-04-19 04:24:53 | Epoch 20/60 | train_loss=0.0744 | val_loss=0.0534 | val_f1_macro=0.9774 | lr=7.72e-04
-2026-04-19 04:24:56 | Epoch 21/60 | train_loss=0.1107 | val_loss=0.0363 | val_f1_macro=0.9955 | lr=7.50e-04
-2026-04-19 04:24:59 | Epoch 22/60 | train_loss=0.0733 | val_loss=0.0393 | val_f1_macro=0.9955 | lr=7.27e-04
-2026-04-19 04:25:01 | Epoch 23/60 | train_loss=0.1022 | val_loss=0.0416 | val_f1_macro=0.9955 | lr=7.03e-04
-2026-04-19 04:25:04 | Epoch 24/60 | train_loss=0.0696 | val_loss=0.0477 | val_f1_macro=0.9864 | lr=6.79e-04
-2026-04-19 04:25:07 | Epoch 25/60 | train_loss=0.0828 | val_loss=0.0414 | val_f1_macro=0.9864 | lr=6.55e-04
-2026-04-19 04:25:10 | Epoch 26/60 | train_loss=0.0681 | val_loss=0.0484 | val_f1_macro=0.9819 | lr=6.29e-04
-2026-04-19 04:25:10 | Early stopping at epoch 26 — best F1: 0.9955
-2026-04-19 04:25:10 | Finished. Best model saved to: results/pgov/efficientnet_frozen_pgov.pth
+2026-04-19 07:46:39 | Starting EfficientNet Frozen Training for pair: pgov
+2026-04-19 07:46:39 | Label: PGOV + Suche Oko
+2026-04-19 07:46:39 |   disease_train: 440 images → dataset/pgov/learning/pgov
+2026-04-19 07:46:39 |   disease_test: 112 images → dataset/pgov/test/pgov
+2026-04-19 07:46:39 |   healthy_train: 440 images → dataset/pgov/learning/zdravi_ludi/super_proccesed
+2026-04-19 07:46:39 |   healthy_test: 112 images → dataset/pgov/test/zdravi_ludi/super_proccesed
+2026-04-19 07:46:39 | Train — disease: 440, healthy: 440, total: 880
+2026-04-19 07:46:39 | Test — disease: 112, healthy: 112, total: 224
+2026-04-19 07:46:39 | Training samples: 880
+2026-04-19 07:46:39 | Test samples: 224
+2026-04-19 07:46:39 | Device: cuda
+2026-04-19 07:46:39 | Trainable params: 2,562
+2026-04-19 07:46:44 | Epoch 01/60 | train_loss=0.3477 | val_loss=0.2461 | val_f1_macro=0.9191 | lr=1.00e-03
+2026-04-19 07:46:47 | Epoch 02/60 | train_loss=0.1835 | val_loss=0.1201 | val_f1_macro=1.0000 | lr=9.99e-04
+2026-04-19 07:46:49 | Epoch 03/60 | train_loss=0.1457 | val_loss=0.0905 | val_f1_macro=0.9911 | lr=9.97e-04
+2026-04-19 07:46:52 | Epoch 04/60 | train_loss=0.1284 | val_loss=0.0891 | val_f1_macro=0.9911 | lr=9.94e-04
+2026-04-19 07:46:55 | Epoch 05/60 | train_loss=0.1485 | val_loss=0.0722 | val_f1_macro=0.9955 | lr=9.89e-04
+2026-04-19 07:46:57 | Epoch 06/60 | train_loss=0.1213 | val_loss=0.0746 | val_f1_macro=0.9955 | lr=9.83e-04
+2026-04-19 07:47:00 | Epoch 07/60 | train_loss=0.1116 | val_loss=0.0665 | val_f1_macro=0.9866 | lr=9.76e-04
+2026-04-19 07:47:03 | Epoch 08/60 | train_loss=0.1015 | val_loss=0.0596 | val_f1_macro=0.9955 | lr=9.67e-04
+2026-04-19 07:47:06 | Epoch 09/60 | train_loss=0.1101 | val_loss=0.0605 | val_f1_macro=0.9955 | lr=9.57e-04
+2026-04-19 07:47:09 | Epoch 10/60 | train_loss=0.1368 | val_loss=0.0717 | val_f1_macro=0.9821 | lr=9.46e-04
+2026-04-19 07:47:11 | Epoch 11/60 | train_loss=0.1198 | val_loss=0.0513 | val_f1_macro=0.9911 | lr=9.33e-04
+2026-04-19 07:47:14 | Epoch 12/60 | train_loss=0.1015 | val_loss=0.0607 | val_f1_macro=0.9911 | lr=9.19e-04
+2026-04-19 07:47:18 | Epoch 13/60 | train_loss=0.0834 | val_loss=0.0550 | val_f1_macro=0.9955 | lr=9.05e-04
+2026-04-19 07:47:20 | Epoch 14/60 | train_loss=0.0808 | val_loss=0.0455 | val_f1_macro=0.9866 | lr=8.89e-04
+2026-04-19 07:47:20 | Early stopping at epoch 14 — best F1: 1.0000
+2026-04-19 07:47:20 | Finished. Best model saved to: results/pgov/efficientnet_frozen_pgov.pth
