@@ -26,6 +26,11 @@ alpha_model/
 beta_model/
 gama_model/
 results/*
+!results/diabetes/*.log
+!results/pgov/*.log
+!results/skleroza/*.log
+!results/suche_oko/*.log
+!results/chory/*.log
 *.bmp
 *.jpg
 *.jpeg
