@@ -29,7 +29,7 @@ from tqdm import tqdm
 
 DATA_ROOT    = "./test"
 RESULTS_DIR  = "results"
-LOG_FILE     = "results/fn_reduction.log"
+LOG_FILE     = "results/fn_reduction_no_tta.log"
 IMAGE_SIZE   = (490, 490)
 BATCH_SIZE   = 16
 TRAIN_SPLIT  = 0.80
@@ -263,26 +263,6 @@ def plot_sweep(thresholds, recalls, precisions, f1s, points, save_path):
     plt.savefig(save_path, dpi=200)
     plt.close()
 
-tta_transform = transforms.Compose([
-    transforms.Grayscale(num_output_channels=3),
-    transforms.RandomHorizontalFlip(),
-    transforms.RandomVerticalFlip(),
-    transforms.RandomRotation(180),
-    transforms.RandomAffine(degrees=0, scale=(0.85, 1.15)),
-    transforms.ToTensor(),
-    transforms.Normalize([0.485, 0.456, 0.406],
-                         [0.229, 0.224, 0.225])
-])
-
-def predict_with_tta(model, image_pil, n=10):
-    preds = []
-    for _ in range(n):
-        aug = tta_transform(image_pil)
-        with torch.no_grad():
-            logits = model(aug.unsqueeze(0).to(DEVICE))
-            preds.append(torch.softmax(logits, dim=1).cpu())
-    return torch.stack(preds).mean(0)  # average over augmentations
-
 def main():
     log.info("Starting fn_reduction pipeline...")
     
@@ -338,24 +318,6 @@ def main():
     
     points_s1, thresh_s1, rec_s1, prec_s1, f1_s1 = evaluate_thresholds(y_true, y_probs_s1, "Strategy 1")
     plot_sweep(thresh_s1, rec_s1, prec_s1, f1_s1, points_s1, os.path.join(RESULTS_DIR, "threshold_sweep_s1.png"))
-    
-    # Strategy 2
-    log.info("Running Strategy 2 (TTA) inference...")
-    y_probs_s2 = []
-    
-    for i in tqdm(range(len(test_paths)), desc="Strategy 2 Inference"):
-        path = test_paths[i]
-        try:
-            image_pil = Image.open(path).convert('L')
-        except:
-            image_pil = Image.fromarray(np.zeros(IMAGE_SIZE, dtype=np.uint8))
-        
-        avg_probs = predict_with_tta(model, image_pil, n=10)
-        y_probs_s2.append(avg_probs[0, 0].item())
-        
-    y_probs_s2 = np.array(y_probs_s2)
-    points_s2, thresh_s2, rec_s2, prec_s2, f1_s2 = evaluate_thresholds(y_true, y_probs_s2, "Strategy 2 (TTA)")
-    plot_sweep(thresh_s2, rec_s2, prec_s2, f1_s2, points_s2, os.path.join(RESULTS_DIR, "threshold_sweep_tta.png"))
     
     # Strategy 3
     log.info("Starting Strategy 3 (Focal Loss Retraining)...")
@@ -482,7 +444,6 @@ def main():
         t_b, r_b, p_b, fn_b, fp_b, f1_b = points_s1['B']
     else:
         t_b, r_b, p_b, fn_b, fp_b, f1_b = 0, 0, 0, 0, 0, 0
-    t_ta, r_ta, p_ta, fn_ta, fp_ta, f1_ta = points_s2['A']
     
     # Focal best
     s3_preds_05 = np.where(y_probs_s3 >= 0.50, 0, 1)
@@ -498,7 +459,6 @@ def main():
     log.info(f"{'Baseline (t=0.50)':<30} {'0.50':>10} {'0.8736':>8} {'0.9744':>10} {'11':>5} {'2':>5}")
     log.info(f"{'S1 Point A (best recall)':<30} {t_a:>10.2f} {r_a:>8.4f} {p_a:>10.4f} {fn_a:>5} {fp_a:>5}")
     log.info(f"{'S1 Point B (recall>=0.95)':<30} {t_b:>10.2f} {r_b:>8.4f} {p_b:>10.4f} {fn_b:>5} {fp_b:>5}")
-    log.info(f"{'S2 TTA Point A':<30} {t_ta:>10.2f} {r_ta:>8.4f} {p_ta:>10.4f} {fn_ta:>5} {fp_ta:>5}")
     log.info(f"{'S3 Focal Loss best':<30} {'0.50':>10} {r_fl:>8.4f} {p_fl:>10.4f} {fn_fl:>5} {fp_fl:>5}")
 
 if __name__ == "__main__":
