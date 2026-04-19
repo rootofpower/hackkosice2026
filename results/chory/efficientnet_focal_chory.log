@@ -1,0 +1,10 @@
+2026-04-19 05:54:18 | Starting EfficientNet Focal Retraining for pair: chory
+2026-04-19 05:54:18 | Label: Vsetky Choroby vs Zdravi
+2026-04-19 05:54:18 |   disease_train: 528 images → dataset/chory/learning/chore
+2026-04-19 05:54:18 |   disease_test: 24 images → dataset/chory/test/chore
+2026-04-19 05:54:18 |   healthy_train: 528 images → dataset/chory/learning/zdravi_ludi/super_proccesed
+2026-04-19 05:54:18 |   healthy_test: 24 images → dataset/chory/test/zdravi_ludi/super_proccesed
+2026-04-19 05:54:18 | Train — disease: 528, healthy: 528, total: 1056
+2026-04-19 05:54:18 | Test — disease: 24, healthy: 24, total: 48
+2026-04-19 05:54:19 | Loading finetuned checkpoint from results/chory/efficientnet_finetuned_chory.pth...
+2026-04-19 05:54:19 | Focal retrain trainable params: 3,158,302

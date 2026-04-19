@@ -1,10 +1,27 @@
-2026-04-19 04:36:10 | Starting EfficientNet Frozen Training for pair: chory
-2026-04-19 04:36:10 | Disease class: chore
-2026-04-19 04:36:10 | Healthy class: zdravi_ludi
-2026-04-19 04:36:10 | Total images found: 984
-2026-04-19 04:36:10 | Class 0 (chore): 552
-2026-04-19 04:36:10 | Class 1 (zdravi_ludi): 432
-2026-04-19 04:36:10 | Training samples: 787
-2026-04-19 04:36:10 | Test samples: 197
-2026-04-19 04:36:10 | Device: cuda
-2026-04-19 04:36:10 | Trainable params: 2,562
+2026-04-19 05:53:00 | Starting EfficientNet Frozen Training for pair: chory
+2026-04-19 05:53:00 | Label: Vsetky Choroby vs Zdravi
+2026-04-19 05:53:00 |   disease_train: 528 images → dataset/chory/learning/chore
+2026-04-19 05:53:00 |   disease_test: 24 images → dataset/chory/test/chore
+2026-04-19 05:53:00 |   healthy_train: 528 images → dataset/chory/learning/zdravi_ludi/super_proccesed
+2026-04-19 05:53:00 |   healthy_test: 24 images → dataset/chory/test/zdravi_ludi/super_proccesed
+2026-04-19 05:53:00 | Train — disease: 528, healthy: 528, total: 1056
+2026-04-19 05:53:00 | Test — disease: 24, healthy: 24, total: 48
+2026-04-19 05:53:00 | Training samples: 1056
+2026-04-19 05:53:00 | Test samples: 48
+2026-04-19 05:53:00 | Device: cuda
+2026-04-19 05:53:00 | Trainable params: 2,562
+2026-04-19 05:53:04 | Epoch 01/60 | train_loss=0.4713 | val_loss=0.1975 | val_f1_macro=1.0000 | lr=1.00e-03
+2026-04-19 05:53:07 | Epoch 02/60 | train_loss=0.3784 | val_loss=0.1772 | val_f1_macro=1.0000 | lr=9.99e-04
+2026-04-19 05:53:10 | Epoch 03/60 | train_loss=0.3432 | val_loss=0.1736 | val_f1_macro=1.0000 | lr=9.97e-04
+2026-04-19 05:53:13 | Epoch 04/60 | train_loss=0.3515 | val_loss=0.1725 | val_f1_macro=1.0000 | lr=9.94e-04
+2026-04-19 05:53:16 | Epoch 05/60 | train_loss=0.3331 | val_loss=0.1849 | val_f1_macro=1.0000 | lr=9.89e-04
+2026-04-19 05:53:18 | Epoch 06/60 | train_loss=0.3226 | val_loss=0.1614 | val_f1_macro=1.0000 | lr=9.83e-04
+2026-04-19 05:53:21 | Epoch 07/60 | train_loss=0.3338 | val_loss=0.1732 | val_f1_macro=1.0000 | lr=9.76e-04
+2026-04-19 05:53:24 | Epoch 08/60 | train_loss=0.3064 | val_loss=0.1551 | val_f1_macro=0.9792 | lr=9.67e-04
+2026-04-19 05:53:27 | Epoch 09/60 | train_loss=0.3417 | val_loss=0.2206 | val_f1_macro=0.9373 | lr=9.57e-04
+2026-04-19 05:53:30 | Epoch 10/60 | train_loss=0.3228 | val_loss=0.1803 | val_f1_macro=0.9792 | lr=9.46e-04
+2026-04-19 05:53:33 | Epoch 11/60 | train_loss=0.3216 | val_loss=0.1746 | val_f1_macro=1.0000 | lr=9.33e-04
+2026-04-19 05:53:36 | Epoch 12/60 | train_loss=0.2949 | val_loss=0.1736 | val_f1_macro=1.0000 | lr=9.19e-04
+2026-04-19 05:53:39 | Epoch 13/60 | train_loss=0.2842 | val_loss=0.1808 | val_f1_macro=1.0000 | lr=9.05e-04
+2026-04-19 05:53:39 | Early stopping at epoch 13 — best F1: 1.0000
+2026-04-19 05:53:39 | Finished. Best model saved to: results/chory/efficientnet_frozen_chory.pth
