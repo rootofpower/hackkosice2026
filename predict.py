@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Usage example: python predict.py --image path/to/image.png --mode balanced
+# Usage example: python predict.py --pair pgov --image path/to/image.png --mode balanced
 """
 LacriML Standalone Inference Script
 
@@ -20,9 +20,9 @@ from PIL import Image
 import numpy as np
 from tqdm import tqdm
 
+from config import PAIRS
+
 # --- Configuration ---
-MODEL_A    = "results/efficientnet_finetuned.pth"
-MODEL_B    = "results/efficientnet_focal.pth"
 N_TTA      = 30
 DEVICE     = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 IMAGE_SIZE = (490, 490)
@@ -57,29 +57,32 @@ tta_transform = transforms.Compose([
 ])
 
 # --- Model Loading Cache ---
-_models = None
+_models = {}  # key: pair name
 
-def _load_models():
-    """Load both EfficientNet models and cache them in memory."""
+def _load_models(pair_key):
+    """Load both EfficientNet models for a given pair and cache them in memory."""
     global _models
-    if _models is not None:
-        return _models
+    if pair_key in _models:
+        return _models[pair_key]
         
-    if not os.path.exists(MODEL_A):
-        raise FileNotFoundError(f"Missing Model A checkpoint at expected path: {MODEL_A}")
-    if not os.path.exists(MODEL_B):
-        raise FileNotFoundError(f"Missing Model B checkpoint at expected path: {MODEL_B}")
+    model_a_path = f"results/{pair_key}/efficientnet_finetuned_{pair_key}.pth"
+    model_b_path = f"results/{pair_key}/efficientnet_focal_{pair_key}.pth"
+        
+    if not os.path.exists(model_a_path):
+        raise FileNotFoundError(f"Missing Model A checkpoint at expected path: {model_a_path}")
+    if not os.path.exists(model_b_path):
+        raise FileNotFoundError(f"Missing Model B checkpoint at expected path: {model_b_path}")
         
     model_a = build_model()
-    model_a.load_state_dict(torch.load(MODEL_A, map_location=DEVICE))
+    model_a.load_state_dict(torch.load(model_a_path, map_location=DEVICE))
     model_a.to(DEVICE).eval()
     
     model_b = build_model()
-    model_b.load_state_dict(torch.load(MODEL_B, map_location=DEVICE))
+    model_b.load_state_dict(torch.load(model_b_path, map_location=DEVICE))
     model_b.to(DEVICE).eval()
     
-    _models = (model_a, model_b)
-    return _models
+    _models[pair_key] = (model_a, model_b)
+    return _models[pair_key]
 
 def _predict_tta(model, image_pil, n=N_TTA):
     """Run TTA inference for a single model."""
@@ -92,12 +95,13 @@ def _predict_tta(model, image_pil, n=N_TTA):
     return torch.stack(preds).mean(0)  # shape: (1, 2)
 
 # --- Core Inference Functions ---
-def predict(image_path: str, mode: str = DEFAULT_MODE) -> dict:
+def predict(image_path: str, pair_key: str, mode: str = DEFAULT_MODE) -> dict:
     """
     Classify a single tear microscopy image.
 
     Args:
         image_path: path to grayscale microscopy image (490x490 px)
+        pair_key: one of the configured disease pairs (e.g. 'diabetes', 'pgov')
         mode: "screening" | "balanced" | "precision"
 
     Returns:
@@ -114,6 +118,9 @@ def predict(image_path: str, mode: str = DEFAULT_MODE) -> dict:
     if mode not in THRESHOLDS:
         raise ValueError(f"Unknown mode: {mode}. Valid modes are: {list(THRESHOLDS.keys())}")
         
+    if pair_key not in PAIRS:
+        raise ValueError(f"Unknown pair: {pair_key}. Valid pairs are: {list(PAIRS.keys())}")
+        
     threshold = THRESHOLDS[mode]
     
     try:
@@ -125,7 +132,7 @@ def predict(image_path: str, mode: str = DEFAULT_MODE) -> dict:
     if image_pil.size != IMAGE_SIZE:
         print(f"Warning: Image size {image_pil.size} differs from expected {IMAGE_SIZE}.")
         
-    model_a, model_b = _load_models()
+    model_a, model_b = _load_models(pair_key)
     
     prob_a = _predict_tta(model_a, image_pil)
     prob_b = _predict_tta(model_b, image_pil)
@@ -156,17 +163,17 @@ def predict(image_path: str, mode: str = DEFAULT_MODE) -> dict:
         "threshold": threshold
     }
 
-def predict_batch(image_paths: list, mode: str = DEFAULT_MODE) -> list:
+def predict_batch(image_paths: list, pair_key: str, mode: str = DEFAULT_MODE) -> list:
     """Run predict() on a list of image paths. Returns list of result dicts."""
     results = []
     for path in tqdm(image_paths, desc="Classifying"):
-        res = predict(path, mode=mode)
+        res = predict(path, pair_key, mode=mode)
         if res is not None:
             results.append(res)
     return results
 
 # --- CLI Handlers ---
-def print_single_result(res):
+def print_single_result(res, pair_label):
     """Print nicely formatted box for single image result."""
     file_name = res['file']
     if len(file_name) > 20: 
@@ -175,15 +182,20 @@ def print_single_result(res):
     dp_str = f"{res['disease_prob']*100:.1f}%"
     mode_str = f"{res['mode']} (t={res['threshold']:.2f})"
     
-    print("╔══════════════════════════════════════╗")
-    print("║         LacriML — Prediction         ║")
-    print("╠══════════════════════════════════════╣")
-    print(f"║  File:        {file_name:<22} ║")
-    print(f"║  Result:      {res['prediction']:<22} ║")
-    print(f"║  Disease prob:{dp_str:<23} ║")
-    print(f"║  Confidence:  {res['confidence']:<22} ║")
-    print(f"║  Mode:        {mode_str:<22} ║")
-    print("╚══════════════════════════════════════╝")
+    # Calculate padding for the header to center the label exactly
+    header_text = f"LacriML — {pair_label}"
+    if len(header_text) > 38:
+        header_text = header_text[:35] + "..."
+    
+    print("╔══════════════════════════════════════════╗")
+    print(f"║ {header_text:^40} ║")
+    print("╠══════════════════════════════════════════╣")
+    print(f"║  File:         {file_name:<25} ║")
+    print(f"║  Result:       {res['prediction']:<25} ║")
+    print(f"║  Disease prob: {dp_str:<25} ║")
+    print(f"║  Confidence:   {res['confidence']:<25} ║")
+    print(f"║  Mode:         {mode_str:<25} ║")
+    print("╚══════════════════════════════════════════╝")
 
 def print_batch_summary(results):
     """Print statistics summary for a batch execution."""
@@ -203,6 +215,8 @@ def print_batch_summary(results):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="LacriML tear image classifier")
+    parser.add_argument("--pair",   required=True,  choices=list(PAIRS.keys()),
+                        help="Disease pair to use for classification")
     parser.add_argument("--image",  required=True,  help="Path to image or directory")
     parser.add_argument("--mode",   default=DEFAULT_MODE,
                         choices=list(THRESHOLDS.keys()),
@@ -211,15 +225,18 @@ if __name__ == "__main__":
                         help="Optional: save results as JSON to this path")
     args = parser.parse_args()
     
+    PAIR_KEY = args.pair
+    PAIR = PAIRS[PAIR_KEY]
+    
     image_path = Path(args.image)
     if not image_path.exists():
         print(f"Error: Path {image_path} does not exist.")
         sys.exit(1)
         
     if image_path.is_file():
-        res = predict(str(image_path), mode=args.mode)
+        res = predict(str(image_path), pair_key=PAIR_KEY, mode=args.mode)
         if res:
-            print_single_result(res)
+            print_single_result(res, PAIR["label"])
             if args.output:
                 with open(args.output, "w", encoding="utf-8") as f:
                     json.dump([res], f, indent=2)
@@ -236,8 +253,8 @@ if __name__ == "__main__":
             print(f"No valid images found in {image_path}.")
             sys.exit(0)
             
-        print(f"Found {len(images)} images in directory. Starting batch classification...")
-        results = predict_batch(images, mode=args.mode)
+        print(f"Found {len(images)} images in directory. Starting batch classification for {PAIR['label']}...")
+        results = predict_batch(images, pair_key=PAIR_KEY, mode=args.mode)
         print("\n")
         print_batch_summary(results)
         

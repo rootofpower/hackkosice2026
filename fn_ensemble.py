@@ -2,6 +2,7 @@
 """Ensemble evaluation script combining Finetuned and Focal models with TTA."""
 
 import os
+import argparse
 import logging
 from pathlib import Path
 
@@ -20,9 +21,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import recall_score, precision_score, f1_score
 from tqdm import tqdm
 
+from config import PAIRS
+
 DATA_ROOT    = "./test"
-RESULTS_DIR  = "results"
-LOG_FILE     = "results/fn_ensemble.log"
 IMAGE_SIZE   = (490, 490)
 BATCH_SIZE   = 16
 N_TTA        = 30
@@ -31,21 +32,6 @@ RANDOM_SEED  = 42
 NUM_CLASSES  = 2
 DEVICE       = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-MODEL_A      = "results/efficientnet_finetuned.pth"
-MODEL_B      = "results/efficientnet_focal.pth"
-
-os.makedirs(RESULTS_DIR, exist_ok=True)
-
-# Logger
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(message)s",
-    datefmt="%Y-%m-%d %H:%M:%S",
-    handlers=[
-        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
-        logging.StreamHandler()
-    ]
-)
 log = logging.getLogger("main")
 
 SUPPORTED_EXTENSIONS = {".bmp", ".png", ".jpg", ".jpeg", ".tif", ".tiff"}
@@ -94,11 +80,11 @@ def _find_image_dir(class_dir: Path) -> Path:
         f"No image files found in {class_dir} or its immediate subdirectories."
     )
 
-def load_data(data_root: str):
+def load_data(data_root: str, pair_config: dict):
     root_path = Path(data_root)
     classes = [
-        {"label": 0, "name": "diabetes_spolu_zo_suchym_okom"},
-        {"label": 1, "name": "zdravi_ludi"}
+        {"label": 0, "name": pair_config["disease_class"]},
+        {"label": 1, "name": pair_config["healthy_class"]}
     ]
     
     paths = []
@@ -252,9 +238,38 @@ def plot_ensemble(variants_data, save_path):
     plt.close()
 
 def main():
-    log.info("Starting fn_ensemble pipeline...")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--pair", required=True, choices=list(PAIRS.keys()))
+    args = parser.parse_args()
     
-    paths, labels = load_data(DATA_ROOT)
+    PAIR_KEY = args.pair
+    PAIR = PAIRS[PAIR_KEY]
+    
+    RESULTS_DIR = f"results/{PAIR_KEY}"
+    MODEL_A = f"{RESULTS_DIR}/efficientnet_finetuned_{PAIR_KEY}.pth"
+    MODEL_B = f"{RESULTS_DIR}/efficientnet_focal_{PAIR_KEY}.pth"
+    LOG_FILE = f"{RESULTS_DIR}/fn_ensemble_{PAIR_KEY}.log"
+    PLOT_FILE = f"{RESULTS_DIR}/ensemble_threshold_sweep_{PAIR_KEY}.png"
+    
+    os.makedirs(RESULTS_DIR, exist_ok=True)
+    
+    # Configure logging dynamically
+    for handler in logging.root.handlers[:]:
+        logging.root.removeHandler(handler)
+        
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s | %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+        handlers=[
+            logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
+            logging.StreamHandler()
+        ]
+    )
+    
+    log.info(f"Starting fn_ensemble pipeline for pair: {PAIR_KEY}")
+    
+    paths, labels = load_data(DATA_ROOT, PAIR)
     indices = np.arange(len(paths))
     train_idx, test_idx = train_test_split(
         indices,
@@ -317,14 +332,14 @@ def main():
         ("V2: Weighted Average", th_v2, r_v2, p_v2, f1_v2, pts_v2),
         ("V3: Max Probability", th_v3, r_v3, p_v3, f1_v3, pts_v3)
     ]
-    plot_ensemble(plot_data, os.path.join(RESULTS_DIR, "ensemble_threshold_sweep.png"))
+    plot_ensemble(plot_data, PLOT_FILE)
     
     log.info("=" * 80)
     log.info("ENSEMBLE COMPARISON — target: FN=0, minimize FP")
     log.info("=" * 80)
     log.info(f"{'Strategy':<35} {'t':>6} {'Recall':>8} {'Prec':>8} {'FN':>5} {'FP':>5} {'F1':>8}")
     log.info(f"{'Baseline (single, t=0.50)':<35} {'0.50':>6} {'0.874':>8} {'0.974':>8} {'11':>5} {'2':>5} {'0.925':>8}")
-    log.info(f"{'TTA×10 best (prev run)':<35} {'0.20':>6} {'0.977':>8} {'0.867':>8} {'2':>5} {'13':>5} {'0.913':>8}")
+    log.info(f"{'TTAx10 best (prev run)':<35} {'0.20':>6} {'0.977':>8} {'0.867':>8} {'2':>5} {'13':>5} {'0.913':>8}")
     
     def log_row(strat_name, pt):
         if pt:
