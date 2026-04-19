@@ -1,0 +1,77 @@
+2026-04-19 02:38:46 | Starting fn_reduction pipeline...
+2026-04-19 02:38:47 | Loading finetuned checkpoint: results/efficientnet_finetuned.pth
+2026-04-19 02:38:47 | Running Strategy 1 inference...
+2026-04-19 02:38:48 | === Strategy 1 ===
+2026-04-19 02:38:48 | Point A (Maximize Recall):
+2026-04-19 02:38:48 |   Threshold:         0.20
+2026-04-19 02:38:48 |   Disease recall:    0.9195
+2026-04-19 02:38:48 |   Disease precision: 0.8333
+2026-04-19 02:38:48 |   False negatives:   7
+2026-04-19 02:38:48 |   False positives:   16
+2026-04-19 02:38:48 |   F1-macro:          0.8666
+2026-04-19 02:38:48 | Point B (Recall >= 0.95 best precision): None found.
+2026-04-19 02:38:48 | Point C (Maximize F1-macro):
+2026-04-19 02:38:48 |   Threshold:         0.49
+2026-04-19 02:38:48 |   Disease recall:    0.8736
+2026-04-19 02:38:48 |   Disease precision: 0.9744
+2026-04-19 02:38:48 |   False negatives:   11
+2026-04-19 02:38:48 |   False positives:   2
+2026-04-19 02:38:48 |   F1-macro:          0.9247
+2026-04-19 02:38:48 | Running Strategy 2 (TTA) inference...
+2026-04-19 02:39:05 | === Strategy 2 (TTA) ===
+2026-04-19 02:39:05 | Point A (Maximize Recall):
+2026-04-19 02:39:05 |   Threshold:         0.20
+2026-04-19 02:39:05 |   Disease recall:    0.9770
+2026-04-19 02:39:05 |   Disease precision: 0.8673
+2026-04-19 02:39:05 |   False negatives:   2
+2026-04-19 02:39:05 |   False positives:   13
+2026-04-19 02:39:05 |   F1-macro:          0.9129
+2026-04-19 02:39:05 | Point B (Recall >= 0.95 best precision):
+2026-04-19 02:39:05 |   Threshold:         0.34
+2026-04-19 02:39:05 |   Disease recall:    0.9540
+2026-04-19 02:39:05 |   Disease precision: 0.9765
+2026-04-19 02:39:05 |   False negatives:   4
+2026-04-19 02:39:05 |   False positives:   2
+2026-04-19 02:39:05 |   F1-macro:          0.9653
+2026-04-19 02:39:05 | Point C (Maximize F1-macro):
+2026-04-19 02:39:05 |   Threshold:         0.34
+2026-04-19 02:39:05 |   Disease recall:    0.9540
+2026-04-19 02:39:05 |   Disease precision: 0.9765
+2026-04-19 02:39:05 |   False negatives:   4
+2026-04-19 02:39:05 |   False positives:   2
+2026-04-19 02:39:05 |   F1-macro:          0.9653
+2026-04-19 02:39:05 | Starting Strategy 3 (Focal Loss Retraining)...
+2026-04-19 02:39:55 | Running Strategy 3 inference...
+2026-04-19 02:39:55 | === Strategy 3 (Focal) ===
+2026-04-19 02:39:55 | Point A (Maximize Recall):
+2026-04-19 02:39:55 |   Threshold:         0.20
+2026-04-19 02:39:55 |   Disease recall:    0.9540
+2026-04-19 02:39:55 |   Disease precision: 0.7757
+2026-04-19 02:39:55 |   False negatives:   4
+2026-04-19 02:39:55 |   False positives:   24
+2026-04-19 02:39:55 |   F1-macro:          0.8357
+2026-04-19 02:39:55 | Point B (Recall >= 0.95 best precision):
+2026-04-19 02:39:55 |   Threshold:         0.24
+2026-04-19 02:39:55 |   Disease recall:    0.9540
+2026-04-19 02:39:55 |   Disease precision: 0.8058
+2026-04-19 02:39:55 |   False negatives:   4
+2026-04-19 02:39:55 |   False positives:   20
+2026-04-19 02:39:55 |   F1-macro:          0.8599
+2026-04-19 02:39:55 | Point C (Maximize F1-macro):
+2026-04-19 02:39:55 |   Threshold:         0.48
+2026-04-19 02:39:55 |   Disease recall:    0.8851
+2026-04-19 02:39:55 |   Disease precision: 0.9506
+2026-04-19 02:39:55 |   False negatives:   10
+2026-04-19 02:39:55 |   False positives:   4
+2026-04-19 02:39:55 |   F1-macro:          0.9190
+2026-04-19 02:39:55 | ===========================================================================
+2026-04-19 02:39:55 | FALSE NEGATIVE REDUCTION — FINAL COMPARISON
+2026-04-19 02:39:55 | ===========================================================================
+2026-04-19 02:39:55 | Strategy                        Threshold   Recall  Precision    FN    FP
+2026-04-19 02:39:55 | Baseline (t=0.50)                    0.50   0.8736     0.9744    11     2
+2026-04-19 02:39:55 | S1 Point A (best recall)             0.20   0.9195     0.8333     7    16
+2026-04-19 02:39:55 | S1 Point B (recall>=0.95)            0.00   0.0000     0.0000     0     0
+2026-04-19 02:39:55 | S2 TTA Point A                       0.20   0.9770     0.8673     2    13
+2026-04-19 02:39:55 | S2 TTA Point B                       0.95   0.9765     0.3400     4     2
+2026-04-19 02:39:55 | S2 TTA Point C                       0.34   0.9540     0.9765     4     2
+2026-04-19 02:39:55 | S3 Focal Loss best                   0.50   0.8851     0.9506    10     4
