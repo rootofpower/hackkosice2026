@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-PAIRS=("diabetes" "pgov" "skleroza")
+PAIRS=("diabetes" "pgov" "skleroza" "suche_oko" "chory")
 
 for PAIR in "${PAIRS[@]}"; do
     echo "========================================"
