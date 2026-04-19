@@ -20,7 +20,6 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import f1_score
 from sklearn.utils.class_weight import compute_class_weight
 from tqdm import tqdm
@@ -55,58 +54,49 @@ class TearDataset(Dataset):
             
         return image, label
 
-def _find_image_dir(class_dir: Path) -> Path:
-    direct_images = [
-        p for p in class_dir.iterdir()
-        if p.is_file() and p.suffix.lower() in SUPPORTED_EXTENSIONS
-    ]
-    if direct_images:
-        return class_dir
+def load_data(pair_config: dict, log):
+    def collect(disease_dir, healthy_dir, split_name):
+        paths, labels = [], []
+        for p in sorted(Path(disease_dir).glob("*")):
+            if p.is_file() and p.suffix.lower() in SUPPORTED_EXTENSIONS:
+                paths.append(str(p))
+                labels.append(0)
+        for p in sorted(Path(healthy_dir).glob("*")):
+            if p.is_file() and p.suffix.lower() in SUPPORTED_EXTENSIONS:
+                paths.append(str(p))
+                labels.append(1)
+        log.info(f"{split_name} — disease: {labels.count(0)}, "
+                 f"healthy: {labels.count(1)}, "
+                 f"total: {len(labels)}")
+        return np.array(paths), np.array(labels)
 
-    for sub in sorted(class_dir.iterdir()):
-        if sub.is_dir():
-            sub_images = [
-                p for p in sub.iterdir()
-                if p.is_file() and p.suffix.lower() in SUPPORTED_EXTENSIONS
-            ]
-            if sub_images:
-                return sub
-
-    raise FileNotFoundError(
-        f"No image files found in {class_dir} or its immediate subdirectories."
+    train_paths, train_labels = collect(
+        pair_config["disease_train"], pair_config["healthy_train"], "Train"
     )
+    test_paths, test_labels = collect(
+        pair_config["disease_test"], pair_config["healthy_test"], "Test"
+    )
+    return train_paths, train_labels, test_paths, test_labels
 
-def load_data(data_root: str, pair_config: dict, log):
-    root_path = Path(data_root)
-    classes = [
-        {"label": 0, "name": pair_config["disease_class"]},
-        {"label": 1, "name": pair_config["healthy_class"]}
-    ]
-    
-    paths = []
-    labels = []
-    
-    for cls in classes:
-        class_dir = root_path / cls["name"]
-        if not class_dir.exists():
-            log.info(f"Warning: class directory not found: {class_dir}")
+def validate_paths(pair_key: str, log):
+    pair = PAIRS[pair_key]
+    for key, path in pair.items():
+        if key == "label":
             continue
-            
-        try:
-            image_dir = _find_image_dir(class_dir)
-        except FileNotFoundError as e:
-            log.info(f"Warning: {e}")
-            continue
-            
-        cls_paths = sorted(
-            p for p in image_dir.iterdir()
-            if p.is_file() and p.suffix.lower() in SUPPORTED_EXTENSIONS
-        )
-        for p in cls_paths:
-            paths.append(str(p))
-            labels.append(cls["label"])
-            
-    return np.array(paths), np.array(labels)
+        p = Path(path)
+        if not p.exists():
+            raise FileNotFoundError(
+                f"[{pair_key}] Path not found: {path}\n"
+                f"  Key: {key}"
+            )
+        files = [f for f in p.glob("*")
+                 if f.is_file() and f.suffix.lower() in SUPPORTED_EXTENSIONS]
+        if len(files) == 0:
+            raise ValueError(
+                f"[{pair_key}] No images found in: {path}\n"
+                f"  Key: {key}"
+            )
+        log.info(f"  {key}: {len(files)} images → {path}")
 
 def main():
     parser = argparse.ArgumentParser()
@@ -116,7 +106,6 @@ def main():
     PAIR_KEY = args.pair
     PAIR = PAIRS[PAIR_KEY]
     
-    DATA_ROOT    = f"./dataset/{PAIR_KEY}"
     RESULTS_DIR  = f"results/{PAIR_KEY}"
     IMAGE_SIZE   = (490, 490)
     BATCH_SIZE   = 16
@@ -124,10 +113,12 @@ def main():
     LR           = 1e-3
     WEIGHT_DECAY = 1e-4
     PATIENCE     = 12
-    TRAIN_SPLIT  = 0.80
     RANDOM_SEED  = 42
     NUM_CLASSES  = 2
     DEVICE       = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    
+    torch.manual_seed(RANDOM_SEED)
+    np.random.seed(RANDOM_SEED)
     
     CHECKPOINT_FROZEN = f"{RESULTS_DIR}/efficientnet_frozen_{PAIR_KEY}.pth"
     LOG_FILE_FROZEN   = f"{RESULTS_DIR}/training_frozen_{PAIR_KEY}.log"
@@ -146,31 +137,16 @@ def main():
     log = logging.getLogger()
     
     log.info(f"Starting EfficientNet Frozen Training for pair: {PAIR_KEY}")
-    log.info(f"Disease class: {PAIR['disease_class']}")
-    log.info(f"Healthy class: {PAIR['healthy_class']}")
+    log.info(f"Label: {PAIR['label']}")
     
-    paths, labels = load_data(DATA_ROOT, PAIR, log)
+    validate_paths(PAIR_KEY, log)
     
-    if len(paths) == 0:
-        log.info("No images found. Exiting.")
+    train_paths, train_labels, test_paths, test_labels = load_data(PAIR, log)
+    
+    if len(train_paths) == 0:
+        log.info("No training images found. Exiting.")
         return
         
-    log.info(f"Total images found: {len(paths)}")
-    label_counts = Counter(labels)
-    log.info(f"Class 0 ({PAIR['disease_class']}): {label_counts.get(0, 0)}")
-    log.info(f"Class 1 ({PAIR['healthy_class']}): {label_counts.get(1, 0)}")
-    
-    indices = np.arange(len(paths))
-    train_idx, test_idx = train_test_split(
-        indices,
-        train_size=TRAIN_SPLIT,
-        stratify=labels,
-        random_state=RANDOM_SEED
-    )
-    
-    train_paths, test_paths = paths[train_idx], paths[test_idx]
-    train_labels, test_labels = labels[train_idx], labels[test_idx]
-    
     log.info(f"Training samples: {len(train_paths)}")
     log.info(f"Test samples: {len(test_paths)}")
     
