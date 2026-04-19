@@ -1,0 +1,84 @@
+2026-04-19 02:46:15 | Starting fn_ensemble pipeline...
+2026-04-19 02:46:16 | Loading Model A: results/efficientnet_finetuned.pth
+2026-04-19 02:46:16 | Loading Model B: results/efficientnet_focal.pth
+2026-04-19 02:48:13 | === Ensemble Variant 1: Simple Average ===
+2026-04-19 02:48:13 | Point A (Maximize Recall):
+2026-04-19 02:48:13 |   Threshold:         0.20
+2026-04-19 02:48:13 |   Disease recall:    1.0000
+2026-04-19 02:48:13 |   Disease precision: 0.8208
+2026-04-19 02:48:13 |   False negatives:   0
+2026-04-19 02:48:13 |   False positives:   19
+2026-04-19 02:48:13 |   F1-macro:          0.8887
+2026-04-19 02:48:13 | Point B (Recall >= 0.95 best precision):
+2026-04-19 02:48:13 |   Threshold:         0.41
+2026-04-19 02:48:13 |   Disease recall:    0.9655
+2026-04-19 02:48:13 |   Disease precision: 0.9882
+2026-04-19 02:48:13 |   False negatives:   3
+2026-04-19 02:48:13 |   False positives:   1
+2026-04-19 02:48:13 |   F1-macro:          0.9769
+2026-04-19 02:48:13 | Point C (Maximize F1-macro):
+2026-04-19 02:48:13 |   Threshold:         0.41
+2026-04-19 02:48:13 |   Disease recall:    0.9655
+2026-04-19 02:48:13 |   Disease precision: 0.9882
+2026-04-19 02:48:13 |   False negatives:   3
+2026-04-19 02:48:13 |   False positives:   1
+2026-04-19 02:48:13 |   F1-macro:          0.9769
+2026-04-19 02:48:13 | === Ensemble Variant 2: Weighted Average (0.4A+0.6B) ===
+2026-04-19 02:48:13 | Point A (Maximize Recall):
+2026-04-19 02:48:13 |   Threshold:         0.20
+2026-04-19 02:48:13 |   Disease recall:    1.0000
+2026-04-19 02:48:13 |   Disease precision: 0.8208
+2026-04-19 02:48:13 |   False negatives:   0
+2026-04-19 02:48:13 |   False positives:   19
+2026-04-19 02:48:13 |   F1-macro:          0.8887
+2026-04-19 02:48:13 | Point B (Recall >= 0.95 best precision):
+2026-04-19 02:48:13 |   Threshold:         0.41
+2026-04-19 02:48:13 |   Disease recall:    0.9655
+2026-04-19 02:48:13 |   Disease precision: 0.9882
+2026-04-19 02:48:13 |   False negatives:   3
+2026-04-19 02:48:13 |   False positives:   1
+2026-04-19 02:48:13 |   F1-macro:          0.9769
+2026-04-19 02:48:13 | Point C (Maximize F1-macro):
+2026-04-19 02:48:13 |   Threshold:         0.34
+2026-04-19 02:48:13 |   Disease recall:    0.9885
+2026-04-19 02:48:13 |   Disease precision: 0.9773
+2026-04-19 02:48:13 |   False negatives:   1
+2026-04-19 02:48:13 |   False positives:   2
+2026-04-19 02:48:13 |   F1-macro:          0.9827
+2026-04-19 02:48:13 | === Ensemble Variant 3: Max Probability ===
+2026-04-19 02:48:13 | Point A (Maximize Recall):
+2026-04-19 02:48:13 |   Threshold:         0.20
+2026-04-19 02:48:13 |   Disease recall:    1.0000
+2026-04-19 02:48:13 |   Disease precision: 0.7699
+2026-04-19 02:48:13 |   False negatives:   0
+2026-04-19 02:48:13 |   False positives:   26
+2026-04-19 02:48:13 |   F1-macro:          0.8460
+2026-04-19 02:48:13 | Point B (Recall >= 0.95 best precision):
+2026-04-19 02:48:13 |   Threshold:         0.42
+2026-04-19 02:48:13 |   Disease recall:    0.9885
+2026-04-19 02:48:13 |   Disease precision: 0.9885
+2026-04-19 02:48:13 |   False negatives:   1
+2026-04-19 02:48:13 |   False positives:   1
+2026-04-19 02:48:13 |   F1-macro:          0.9884
+2026-04-19 02:48:13 | Point C (Maximize F1-macro):
+2026-04-19 02:48:13 |   Threshold:         0.42
+2026-04-19 02:48:13 |   Disease recall:    0.9885
+2026-04-19 02:48:13 |   Disease precision: 0.9885
+2026-04-19 02:48:13 |   False negatives:   1
+2026-04-19 02:48:13 |   False positives:   1
+2026-04-19 02:48:13 |   F1-macro:          0.9884
+2026-04-19 02:48:13 | ================================================================================
+2026-04-19 02:48:13 | ENSEMBLE COMPARISON — target: FN=0, minimize FP
+2026-04-19 02:48:13 | ================================================================================
+2026-04-19 02:48:13 | Strategy                                 t   Recall     Prec    FN    FP       F1
+2026-04-19 02:48:13 | Baseline (single, t=0.50)             0.50    0.874    0.974    11     2    0.925
+2026-04-19 02:48:13 | TTA×10 best (prev run)                0.20    0.977    0.867     2    13    0.913
+2026-04-19 02:48:13 | V1 (Avg) Point A                      0.20    1.000    0.821     0    19    0.889
+2026-04-19 02:48:13 | V1 (Avg) Point B                      0.41    0.966    0.988     3     1    0.977
+2026-04-19 02:48:13 | V1 (Avg) Point C                      0.41    0.966    0.988     3     1    0.977
+2026-04-19 02:48:13 | V2 (Weighted) Point A                 0.20    1.000    0.821     0    19    0.889
+2026-04-19 02:48:13 | V2 (Weighted) Point B                 0.41    0.966    0.988     3     1    0.977
+2026-04-19 02:48:13 | V2 (Weighted) Point C                 0.34    0.989    0.977     1     2    0.983
+2026-04-19 02:48:13 | V3 (Max) Point A                      0.20    1.000    0.770     0    26    0.846
+2026-04-19 02:48:13 | V3 (Max) Point B                      0.42    0.989    0.989     1     1    0.988
+2026-04-19 02:48:13 | V3 (Max) Point C                      0.42    0.989    0.989     1     1    0.988
