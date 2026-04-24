@@ -5,3 +5,12 @@ scikit-learn
 matplotlib
 seaborn
 tqdm
+
+torch
+torchvision
+scikit-learn
+Pillow
+matplotlib
+seaborn
+numpy
+tqdm
